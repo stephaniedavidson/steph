@@ -28,11 +28,20 @@ export const query = graphql`
 `
 
 const Work = props => {
+  const options = {
+    renderNode: {
+      "embedded-asset-block": node => {
+        const alt = node.data.target.fields.title["en-US"]
+        const url = node.data.target.fields.file["en-US"].url
+        return <img alt={alt} src={url} />
+      },
+    },
+  }
   return (
     <Layout>
       <h1>{props.data.contentfulWork.title}</h1>
       <p>{props.data.contentfulWork.publishedDate}</p>
-      {documentToReactComponents(props.data.contentfulWork.blurb.json)}
+      {documentToReactComponents(props.data.contentfulWork.blurb.json, options)}
     </Layout>
   )
 }
