@@ -1,0 +1,17 @@
+nav ul{
+    display: flex;
+    list-style: none;
+}
+nav li{
+    padding: 10px;
+}
+
+a{
+    color: goldenrod;
+    text-decoration: none;
+}
+
+.active{
+    color: fuchsia;
+    text-decoration: underline;
+}

@@ -1,0 +1,14 @@
+$red: #c40000;
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 100%;
+}
+
+p{
+    border: 1px solid $red;
+}
