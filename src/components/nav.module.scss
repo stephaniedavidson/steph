@@ -1,17 +1,19 @@
-nav ul{
+nav {
+  margin-bottom: 1rem;
+  ul {
     display: flex;
+    border-bottom: 4px solid black;
+  }
+  li {
+    padding-right: 10px;
     list-style: none;
-}
-nav li{
-    padding: 10px;
-}
-
-a{
-    color: goldenrod;
+  }
+  a {
     text-decoration: none;
-}
-
-.active{
+  }
+  .active {
     color: fuchsia;
     text-decoration: underline;
+    font-weight: bold;
+  }
 }

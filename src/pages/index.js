@@ -2,6 +2,7 @@ import React from "react"
 import Layout from "../components/layout"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import Head from "../components/head"
+import workStyles from "../components/work.module.scss"
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
@@ -20,7 +21,7 @@ const IndexPage = () => {
   return (
     <Layout>
       <Head title="Scotts Homepage" />
-      <ul>
+      <ul className={workStyles.indexPage}>
         {data.allContentfulWork.edges.map(edge => {
           return (
             <li>
