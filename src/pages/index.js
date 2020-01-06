@@ -1,6 +1,7 @@
 import React from "react"
 import Layout from "../components/layout"
 import { Link, graphql, useStaticQuery } from "gatsby"
+import Head from "../components/head"
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
@@ -18,6 +19,7 @@ const IndexPage = () => {
   `)
   return (
     <Layout>
+      <Head title="Scotts Homepage" />
       <ul>
         {data.allContentfulWork.edges.map(edge => {
           return (

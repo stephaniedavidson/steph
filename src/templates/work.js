@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer" //takes the contentful rich text json and spits out component
+import Head from "../components/head"
 
 // export const query = graphql`
 //   query($slug: String!) {
@@ -39,6 +40,7 @@ const Work = props => {
   }
   return (
     <Layout>
+      <Head title={props.data.contentfulWork.title} />
       <h1>{props.data.contentfulWork.title}</h1>
       <p>{props.data.contentfulWork.publishedDate}</p>
       {documentToReactComponents(props.data.contentfulWork.blurb.json, options)}
@@ -46,6 +48,6 @@ const Work = props => {
   )
 }
 
-export default Work
+//4:25
 
-//mon night 3:28
+export default Work
