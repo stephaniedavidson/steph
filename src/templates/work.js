@@ -11,6 +11,12 @@ export const query = graphql`
     contentfulWork(slug: { eq: $slug }) {
       title
       publishedDate(formatString: "MMMM Do, YYYY")
+      heroImage {
+        title
+        file {
+          url
+        }
+      }
       blurb {
         json
       }
