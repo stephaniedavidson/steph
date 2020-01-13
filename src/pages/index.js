@@ -13,6 +13,12 @@ const IndexPage = () => {
             title
             slug
             publishedDate(formatString: "MMMM Do, YYYY")
+            heroImage {
+              title
+              file {
+                url
+              }
+            }
           }
         }
       }
@@ -24,10 +30,16 @@ const IndexPage = () => {
       <ul className={workStyles.indexPage}>
         {data.allContentfulWork.edges.map(edge => {
           return (
-            <li>
+            <li key={edge.node.slug}>
               <Link to={`/work/${edge.node.slug}`}>
                 <h3>{edge.node.title}</h3>
                 {edge.node.publishedDate}
+                {console.log(
+                  edge.node.heroImage ? edge.node.heroImage.file.url : "has not"
+                )}
+                {edge.node.heroImage && (
+                  <img src={edge.node.heroImage.file.url} />
+                )}
               </Link>
             </li>
           )
