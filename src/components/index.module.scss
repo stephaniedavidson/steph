@@ -1,0 +1,23 @@
+$red: #e7004d;
+$crimson: #aa0000;
+$grey: #cccccc;
+$greydient: linear-gradient(to bottom, #cccccc 0%, #eeeeee 100%);
+$babyblue: #0074d3;
+$green: green;
+$yellow: yellow;
+
+.indexPage {
+  a {
+    text-decoration: none;
+  }
+  li {
+    background: $greydient;
+    border-bottom: 12px solid $green;
+    padding: 20px 0;
+    list-style: none;
+    padding: 0.5rem;
+  }
+  h3 {
+    margin-bottom: 0.5rem;
+  }
+}
