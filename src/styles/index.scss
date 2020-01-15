@@ -1,5 +1,13 @@
 $red: #e7004d;
+$crimson: #aa0000;
 $grey: #cccccc;
+$greydient: linear-gradient(to bottom, #cccccc 0%, #eeeeee 100%);
+$babyblue: #0074d3;
+$yellow: yellow;
+$green: green;
+
+@import url("https://fonts.googleapis.com/css?family=Fahkwang:400,400i,700,700i&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -11,16 +19,44 @@ html {
 }
 
 body {
-  background: $grey;
+  background: $crimson;
   padding: 1rem;
 }
 
 a {
-  color: $red;
+  color: $babyblue;
+  transition: all 0.25s ease;
+}
+a:visited {
+  color: blue;
+}
+a:hover {
+  color: red;
 }
 
+.wrapper {
+  border: 1rem solid $green;
+}
+.content {
+  background: $yellow;
+}
+h1,
+h2,
 h3 {
+  font-family: "Fahkwang", sans-serif;
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 4rem;
+}
+h2 {
   font-size: 2rem;
-  line-height: 2.5rem;
-  font-weight: normal;
+}
+h3 {
+  font-size: 1.5rem;
+}
+footer {
+  background: hotpink;
+  padding: 0.5rem;
 }

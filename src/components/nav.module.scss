@@ -1,19 +1,55 @@
+$red: #e7004d;
+$crimson: #aa0000;
+$grey: #cccccc;
+$greydient: linear-gradient(to bottom, #cccccc 0%, #eeeeee 100%);
+$babyblue: #0074d3;
+$yellow: yellow;
 nav {
-  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  background: $yellow;
+  padding: 0.5rem;
   ul {
     display: flex;
-    border-bottom: 4px solid black;
   }
   li {
-    padding-right: 10px;
+    margin-right: 1rem;
     list-style: none;
   }
   a {
     text-decoration: none;
+    border: 1px solid blue;
+    padding: 2px 6px;
+    border-radius: 10px;
   }
   .active {
-    color: fuchsia;
-    text-decoration: underline;
+    color: black !important;
+    border: 1px solid black !important;
     font-weight: bold;
+  }
+  button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 1.2rem;
+    padding: 4px 10px;
+    margin: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transform-origin: center left;
+    transform: rotate(90deg);
+    border: 2px solid black;
+    animation: cycle 5s ease infinite alternate;
+  }
+
+  @keyframes cycle {
+    0% {
+      background: $red;
+    }
+    50% {
+      background: $babyblue;
+    }
+    100% {
+      background: green;
+    }
   }
 }

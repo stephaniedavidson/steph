@@ -1,16 +1,37 @@
-import React from 'react'
-import { Link } from 'gatsby'
-import navStyles from './nav.module.scss'
+import React from "react"
+import { Link } from "gatsby"
+import navStyles from "./nav.module.scss"
+import { graphql, useStaticQuery } from "gatsby"
 
 const Nav = () => {
-    return (
-        <nav>
-            <ul>
-                <li><Link activeClassName={navStyles.active} to='/'>Home</Link></li>
-                <li><Link activeClassName={navStyles.active} to='/contact'>Contact</Link></li>
-            </ul>
-        </nav>
-    )
+  const myConfig = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `)
+  return (
+    <nav className={navStyles.nav}>
+      <h1>{myConfig.site.siteMetadata.title}</h1>
+      <div className="descriptor">3D generalist</div>
+      <ul>
+        <li>
+          <Link activeClassName={navStyles.active} to="/">
+            Work
+          </Link>
+        </li>
+        <li>
+          <Link activeClassName={navStyles.active} to="/contact">
+            About
+          </Link>
+        </li>
+      </ul>
+      <button className="contactBtn">Contact</button>
+    </nav>
+  )
 }
 
 export default Nav
