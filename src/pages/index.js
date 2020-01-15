@@ -13,6 +13,11 @@ const IndexPage = () => {
             title
             slug
             publishedDate(formatString: "MMMM Do, YYYY")
+            heroImage {
+              file {
+                url
+              }
+            }
           }
         }
       }
@@ -28,6 +33,7 @@ const IndexPage = () => {
               <Link to={`/work/${edge.node.slug}`}>
                 <h3>{edge.node.title}</h3>
                 {edge.node.publishedDate}
+                {console.log(edge.node.heroImage.file.url)}
               </Link>
             </li>
           )
