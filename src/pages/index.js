@@ -40,9 +40,8 @@ const IndexPage = () => {
                     />
                   )}
                 </div>
-                <h3>{edge.node.title}</h3>
+                <h2>{edge.node.title}</h2>
                 {edge.node.publishedDate}
-                {console.log(edge.node.heroImage.file.url)}
               </Link>
             </li>
           )
