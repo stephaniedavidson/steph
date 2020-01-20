@@ -1,23 +1,26 @@
-$red: #e7004d;
-$crimson: #aa0000;
-$grey: #cccccc;
-$greydient: linear-gradient(to bottom, #cccccc 0%, #eeeeee 100%);
-$babyblue: #0074d3;
-$green: green;
-$yellow: yellow;
-
 .indexPage {
   a {
     text-decoration: none;
   }
   li {
-    background: $greydient;
-    border-bottom: 12px solid $green;
-    padding: 20px 0;
     list-style: none;
-    padding: 0.5rem;
+    display: inline-block;
+    max-width: 1200px;
   }
   h3 {
     margin-bottom: 0.5rem;
+  }
+}
+.filter {
+  margin-bottom: 1rem;
+  ul {
+    display: inline-block;
+  }
+  li {
+    display: inline-block;
+    border: 2px solid black;
+    border-radius: 6px;
+    padding: 0 4px;
+    margin: 0 4px;
   }
 }

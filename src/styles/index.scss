@@ -1,13 +1,5 @@
-$red: #e7004d;
-$crimson: #aa0000;
-$grey: #cccccc;
-$greydient: linear-gradient(to bottom, #cccccc 0%, #eeeeee 100%);
-$babyblue: #0074d3;
-$yellow: yellow;
-$green: green;
-
-@import url("https://fonts.googleapis.com/css?family=Fahkwang:400,400i,700,700i&display=swap");
-
+@import url("https://fonts.googleapis.com/css?family=EB+Garamond:400,400i,700,700i&display=swap");
+$grey: #e2e2e2;
 * {
   margin: 0;
   padding: 0;
@@ -19,31 +11,38 @@ html {
 }
 
 body {
-  background: $crimson;
-  padding: 1rem;
+  background: url("https://techcrunch.com/wp-content/uploads/2015/08/clouds.jpg")
+    no-repeat center center fixed;
+  background-size: cover;
+  padding: 3rem;
+  font-family: "EB Garamond", serif;
+  font-size: 1.5rem;
 }
 
 a {
-  color: $babyblue;
   transition: all 0.25s ease;
-}
-a:visited {
   color: blue;
 }
+a:visited {
+  color: #292929;
+}
 a:hover {
-  color: red;
+  color: hotpink;
 }
 
+img {
+  max-width: 100%;
+}
 .wrapper {
-  border: 1rem solid $green;
+  background: $grey;
+  border: 10px outset;
+  padding: 1rem;
 }
 .content {
-  background: $yellow;
 }
 h1,
 h2,
 h3 {
-  font-family: "Fahkwang", sans-serif;
   font-weight: 400;
 }
 
@@ -57,6 +56,9 @@ h3 {
   font-size: 1.5rem;
 }
 footer {
-  background: hotpink;
   padding: 0.5rem;
+}
+
+em {
+  font-weight: 400i;
 }

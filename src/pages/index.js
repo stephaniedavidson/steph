@@ -12,6 +12,7 @@ const IndexPage = () => {
           node {
             title
             slug
+            tags
             publishedDate(formatString: "MMMM Do, YYYY")
             heroImage {
               title
@@ -26,11 +27,19 @@ const IndexPage = () => {
   `)
   return (
     <Layout>
-      <Head title="Scotts Homepage" />
+      <Head title="Work" />
+      <div className={indexStyles.filter}>
+        Filter:{" "}
+        <ul>
+          <li>Design</li>
+          <li>Motion</li>
+          <li>Illustration</li>
+        </ul>
+      </div>
       <ul className={indexStyles.indexPage}>
         {data.allContentfulWork.edges.map(edge => {
           return (
-            <li key={edge.node.slug}>
+            <li key={edge.node.slug} data-tags={edge.node.tags.split(",")}>
               <Link to={`/work/${edge.node.slug}`}>
                 <div className="pic">
                   {edge.node.heroImage && (
@@ -42,6 +51,8 @@ const IndexPage = () => {
                 </div>
                 <h2>{edge.node.title}</h2>
                 {edge.node.publishedDate}
+                <br />
+                Tags: {edge.node.tags}
               </Link>
             </li>
           )

@@ -16,7 +16,7 @@ const Nav = () => {
   return (
     <nav className={navStyles.nav}>
       <h1>{myConfig.site.siteMetadata.title}</h1>
-      <div className={navStyles.descriptor}>3D generalist</div>
+      <div className={navStyles.descriptor}>Generalist</div>
       <ul>
         <li>
           <Link activeClassName={navStyles.active} to="/">
@@ -29,7 +29,6 @@ const Nav = () => {
           </Link>
         </li>
       </ul>
-      <button className={navStyles.button}>Contact</button>
     </nav>
   )
 }

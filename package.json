@@ -1,7 +1,7 @@
 {
-  "name": "ScottGelberWebsite",
+  "name": "StephPortfolio",
   "private": true,
-  "description": "Scott Gelber website",
+  "description": "Steph Portfolio",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
