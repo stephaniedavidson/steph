@@ -26,9 +26,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
-
   // unique tag array
-  let eachTag
   let allTags = []
   res.data.allContentfulWork.edges.forEach(edge => {
     eachTag = edge.node.tags.split(",").map(x => {
@@ -38,11 +36,18 @@ module.exports.createPages = async ({ graphql, actions }) => {
     })
     console.log("ALL TAGS ", allTags)
   })
-
   //reduce tags
   const uniqueTags = [...new Set(allTags)]
-
   //make a page for each tag
-
+  const tagTemplate = path.resolve("./src/templates/tagged.js")
+  uniqueTags.forEach(x => {
+    createPage({
+      component: tagTemplate,
+      path: `/${x}`,
+      context: {
+        slug: x,
+      },
+    })
+  })
   //.includes("design");
 }
