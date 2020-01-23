@@ -14,9 +14,9 @@ body {
   background: url("https://techcrunch.com/wp-content/uploads/2015/08/clouds.jpg")
     no-repeat center center fixed;
   background-size: cover;
-  padding: 3rem;
   font-family: "EB Garamond", serif;
   font-size: 1.5rem;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -27,18 +27,17 @@ a:visited {
   color: #292929;
 }
 a:hover {
-  color: hotpink;
+  color: crimson;
 }
 
 img {
   max-width: 100%;
 }
-.wrapper {
+.content {
   background: $grey;
   border: 10px outset;
   padding: 1rem;
-}
-.content {
+  margin: 0 2rem;
 }
 h1,
 h2,

@@ -24,6 +24,27 @@ export const query = graphql`
   }
 `
 const Work = props => {
+  function printPicOrVid(myUrl) {
+    let fileExt =
+      myUrl.substring(myUrl.lastIndexOf(".") + 1, myUrl.length) || myUrl
+    if (fileExt === "jpg" || fileExt === "png" || fileExt === "gif") {
+      return <img src={"https:" + myUrl} />
+    } else if (fileExt === "mp4") {
+      return (
+        <video
+          width="100%"
+          src={"https:" + myUrl}
+          loop
+          autoPlay
+          muted
+          playsInline
+        ></video>
+      )
+    } else {
+      return "invalid hero image"
+    }
+  }
+
   const options = {
     renderNode: {
       "embedded-asset-block": node => {
@@ -38,6 +59,9 @@ const Work = props => {
       <Head title={props.data.contentfulWork.title} />
       <h1>{props.data.contentfulWork.title}</h1>
       <p>{props.data.contentfulWork.publishedDate}</p>
+
+      {props.data.contentfulWork.heroImage &&
+        printPicOrVid(props.data.contentfulWork.heroImage.file.url)}
       {documentToReactComponents(props.data.contentfulWork.blurb.json, options)}
     </Layout>
   )

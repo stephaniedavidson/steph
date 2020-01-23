@@ -1,23 +1,22 @@
 const path = require("path")
 
-//https://www.gatsbyjs.org/packages/gatsby-transformer-remark/
 module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions //2:40
-  //get path to template
   const workTemplate = path.resolve("./src/templates/work.js")
-  //get markdown data
   const res = await graphql(`
     query {
       allContentfulWork {
         edges {
           node {
             slug
+            tags
           }
         }
       }
     }
   `)
-  //create new pages (2:45)
+
+  //CREATE THE WORK PAGES
   res.data.allContentfulWork.edges.forEach(edge => {
     createPage({
       component: workTemplate,
@@ -27,4 +26,23 @@ module.exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
+
+  // unique tag array
+  let eachTag
+  let allTags = []
+  res.data.allContentfulWork.edges.forEach(edge => {
+    eachTag = edge.node.tags.split(",").map(x => {
+      x.trim()
+      //push to all tags
+      allTags.push(x)
+    })
+    console.log("ALL TAGS ", allTags)
+  })
+
+  //reduce tags
+  const uniqueTags = [...new Set(allTags)]
+
+  //make a page for each tag
+
+  //.includes("design");
 }

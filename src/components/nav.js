@@ -16,7 +16,7 @@ const Nav = () => {
   return (
     <nav className={navStyles.nav}>
       <h1>{myConfig.site.siteMetadata.title}</h1>
-      <div className={navStyles.descriptor}>Generalist</div>
+      <div className={navStyles.descriptor}>Creative generalist</div>
       <ul>
         <li>
           <Link activeClassName={navStyles.active} to="/">

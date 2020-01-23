@@ -5,6 +5,26 @@ import Head from "../components/head"
 import indexStyles from "../components/index.module.scss"
 
 const IndexPage = () => {
+  function printPicOrVid(myUrl) {
+    let fileExt =
+      myUrl.substring(myUrl.lastIndexOf(".") + 1, myUrl.length) || myUrl
+    if (fileExt === "jpg" || fileExt === "png" || fileExt === "gif") {
+      return <img src={"https:" + myUrl} />
+    } else if (fileExt === "mp4") {
+      return (
+        <video
+          width="100%"
+          src={"https:" + myUrl}
+          loop
+          autoPlay
+          muted
+          playsInline
+        ></video>
+      )
+    } else {
+      return "invalid hero image"
+    }
+  }
   const data = useStaticQuery(graphql`
     query {
       allContentfulWork(sort: { fields: publishedDate, order: DESC }) {
@@ -36,28 +56,26 @@ const IndexPage = () => {
           <li>Illustration</li>
         </ul>
       </div>
-      <ul className={indexStyles.indexPage}>
+      <div className={indexStyles.indexWrapper}>
         {data.allContentfulWork.edges.map(edge => {
           return (
-            <li key={edge.node.slug} data-tags={edge.node.tags.split(",")}>
+            <div key={edge.node.slug} data-tags={edge.node.tags.split(",")}>
               <Link to={`/work/${edge.node.slug}`}>
-                <div className="pic">
-                  {edge.node.heroImage && (
-                    <img
-                      src={edge.node.heroImage.file.url}
-                      alt={edge.node.title}
-                    />
-                  )}
+                <div className={indexStyles.item}>
+                  {edge.node.heroImage &&
+                    printPicOrVid(edge.node.heroImage.file.url)}
+                  <div className={indexStyles.itemInfo}>
+                    <h2>{edge.node.title}</h2>
+                    {edge.node.publishedDate}
+                    <br />
+                    Tags: {edge.node.tags}
+                  </div>
                 </div>
-                <h2>{edge.node.title}</h2>
-                {edge.node.publishedDate}
-                <br />
-                Tags: {edge.node.tags}
               </Link>
-            </li>
+            </div>
           )
         })}
-      </ul>
+      </div>
     </Layout>
   )
 }
