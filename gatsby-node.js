@@ -1,7 +1,6 @@
 const path = require("path")
-
 module.exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions //2:40
+  const { createPage } = actions
   const workTemplate = path.resolve("./src/templates/work.js")
   const res = await graphql(`
     query {
@@ -16,7 +15,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  //CREATE THE WORK PAGES
+  //CREATE THE WORK PAGES (works fine!)
   res.data.allContentfulWork.edges.forEach(edge => {
     createPage({
       component: workTemplate,
@@ -26,28 +25,27 @@ module.exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
-  // unique tag array
+
+  //CREATE TAG PAGES (this sorta works)
   let allTags = []
   res.data.allContentfulWork.edges.forEach(edge => {
     eachTag = edge.node.tags.split(",").map(x => {
       x.trim()
-      //push to all tags
-      allTags.push(x)
+      allTags.push(x) //collect all the tags
     })
-    console.log("ALL TAGS ", allTags)
   })
-  //reduce tags
-  const uniqueTags = [...new Set(allTags)]
-  //make a page for each tag
+
+  const uniqueTags = [...new Set(allTags)] //reduce all tags to unique tags
   const tagTemplate = path.resolve("./src/templates/tagged.js")
+
   uniqueTags.forEach(x => {
+    //make a page for each tag
     createPage({
       component: tagTemplate,
-      path: `/${x}`,
+      path: `/${x}`, //making the page template?
       context: {
-        slug: x,
+        slug: edge.node.slug, //passing in all the slugs?
       },
     })
   })
-  //.includes("design");
 }

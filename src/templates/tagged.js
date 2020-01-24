@@ -1,10 +1,8 @@
 import React from "react"
 import { graphql } from "gatsby"
-
-//takes the contentful rich text json and spits out component
-import Head from "../components/head"
 import Layout from "../components/layout"
 
+//just grabbing the slugs
 export const query = graphql`
   query($slug: String!) {
     contentfulWork(slug: { eq: $slug }) {
@@ -20,10 +18,16 @@ export const query = graphql`
     }
   }
 `
+
+//idk what to do here really
 const Tagged = props => {
   return (
     <Layout>
-      <h1>{props}</h1>
+      <h2>
+        Tagged <em>{props.pathContext.slug}</em>
+      </h2>
+
+      {console.log(props.data)}
     </Layout>
   )
 }
