@@ -5,9 +5,8 @@ const createTagPages = (createPage, posts) => {
   const allTagTemplate = path.resolve("./src/templates/allTags.js")
   const postsByTags = {}
   posts.forEach(({ node }) => {
-    console.log("@@@@@@@@@@bop@@@@@@@@@@@@@@")
-    console.log(node.tags)
     const splitTags = node.tags.split(",")
+    console.log("@@@@@@@@@@@@@@@@@@@@@@@@", node.tags, splitTags)
     if (node.tags) {
       splitTags.forEach(tag => {
         if (!postsByTags[tag]) {
@@ -29,7 +28,7 @@ const createTagPages = (createPage, posts) => {
   tags.forEach(tagName => {
     const posts = postsByTags[tagName]
     createPage({
-      path: `/tags/{$tagName}`,
+      path: `/tagged/{$tagName}`,
       component: tagTemplate,
       context: {
         posts,
