@@ -1,7 +1,45 @@
 const path = require("path")
+
+const createTagPages = (createPage, posts) => {
+  const tagTemplate = path.resolve("./src/templates/tagged.js")
+  const allTagTemplate = path.resolve("./src/templates/allTags.js")
+  const postsByTags = {}
+  posts.forEach(({ node }) => {
+    console.log("@@@@@@@@@@bop@@@@@@@@@@@@@@")
+    console.log(node)
+    if (node.tags) {
+      node.tags.forEach(tag => {
+        if (!postsByTags[tag]) {
+          postsByTags[tag] = []
+        }
+        postsByTags[tag].push(node)
+      })
+    }
+  })
+  const tags = Object.keys(postsByTags)
+  createPage({
+    path: `/tags`,
+    component: allTagTemplate,
+    context: {
+      tags: tags.sort(),
+    },
+  })
+
+  tags.forEach(tagName => {
+    const posts = postsByTags[tagName]
+    createPage({
+      path: `/tags/{$tagName}`,
+      component: tagTemplate,
+      context: {
+        posts,
+        tagName,
+      },
+    })
+  })
+}
+
 module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-  const workTemplate = path.resolve("./src/templates/work.js")
   const res = await graphql(`
     query {
       allContentfulWork {
@@ -9,13 +47,16 @@ module.exports.createPages = async ({ graphql, actions }) => {
           node {
             slug
             tags
+            title
           }
         }
       }
     }
   `)
+  const posts = res.data.allContentfulWork.edges
 
   //CREATE THE WORK PAGES (works fine!)
+  const workTemplate = path.resolve("./src/templates/work.js")
   res.data.allContentfulWork.edges.forEach(edge => {
     createPage({
       component: workTemplate,
@@ -27,25 +68,5 @@ module.exports.createPages = async ({ graphql, actions }) => {
   })
 
   //CREATE TAG PAGES (this sorta works)
-  let allTags = []
-  res.data.allContentfulWork.edges.forEach(edge => {
-    eachTag = edge.node.tags.split(",").map(x => {
-      x.trim()
-      allTags.push(x) //collect all the tags
-    })
-  })
-
-  const uniqueTags = [...new Set(allTags)] //reduce all tags to unique tags
-  const tagTemplate = path.resolve("./src/templates/tagged.js")
-
-  uniqueTags.forEach(x => {
-    //make a page for each tag
-    createPage({
-      component: tagTemplate,
-      path: `/${x}`, //making the page template?
-      context: {
-        slug: edge.node.slug, //passing in all the slugs?
-      },
-    })
-  })
+  createTagPages(createPage, posts)
 }

@@ -1,35 +1,31 @@
 import React from "react"
-import { graphql } from "gatsby"
-import Layout from "../components/layout"
+import Link from "gatsby-link"
 
-//just grabbing the slugs
-export const query = graphql`
-  query($slug: String!) {
-    contentfulWork(slug: { eq: $slug }) {
-      title
-      publishedDate(formatString: "MMMM Do, YYYY")
-      tags
-      heroImage {
-        title
-        file {
-          url
-        }
-      }
-    }
+const Tags = ({ pathContext }) => {
+  const { posts, tagName } = pathContext
+
+  if (posts) {
+    return (
+      <div>
+        <h1>
+          Tagged <em>{tagName}</em>
+        </h1>
+        <ul>
+          <li>
+            {posts.map(post => {
+              return (
+                <li>
+                  <Link to={post.frontmatter.path}>
+                    {post.frontmatter.title}
+                  </Link>
+                </li>
+              )
+            })}
+          </li>
+        </ul>
+      </div>
+    )
   }
-`
-
-//idk what to do here really
-const Tagged = props => {
-  return (
-    <Layout>
-      <h2>
-        Tagged <em>{props.pathContext.slug}</em>
-      </h2>
-
-      {console.log(props.data)}
-    </Layout>
-  )
 }
 
-export default Tagged
+export default Tags
