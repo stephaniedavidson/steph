@@ -6,9 +6,10 @@ const createTagPages = (createPage, posts) => {
   const postsByTags = {}
   posts.forEach(({ node }) => {
     console.log("@@@@@@@@@@bop@@@@@@@@@@@@@@")
-    console.log(node)
+    console.log(node.tags)
+    const splitTags = node.tags.split(",")
     if (node.tags) {
-      node.tags.forEach(tag => {
+      splitTags.forEach(tag => {
         if (!postsByTags[tag]) {
           postsByTags[tag] = []
         }
