@@ -1,12 +1,16 @@
 const path = require("path")
 
+removeSpaces = word => {
+  return word.replace(/ /g, "")
+}
+
 const createTagPages = (createPage, posts) => {
   const tagTemplate = path.resolve("./src/templates/tagged.js")
   const allTagTemplate = path.resolve("./src/templates/allTags.js")
   const postsByTags = {}
   posts.forEach(({ node }) => {
     const splitTags = node.tags.split(",")
-    console.log("@@@@@@@@@@@@@@@@@@@@@@@@", node.tags, splitTags)
+    // console.log("@@@@@@@@@@@@@@@@@@@@@@@@", node.tags, splitTags)
     if (node.tags) {
       splitTags.forEach(tag => {
         if (!postsByTags[tag]) {
@@ -16,7 +20,12 @@ const createTagPages = (createPage, posts) => {
       })
     }
   })
+
+  // console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+  // console.log(postsByTags)
+
   const tags = Object.keys(postsByTags)
+  //create ALL TAGS
   createPage({
     path: `/tags`,
     component: allTagTemplate,
@@ -24,11 +33,13 @@ const createTagPages = (createPage, posts) => {
       tags: tags.sort(),
     },
   })
-
+  //create EACH TAG
   tags.forEach(tagName => {
     const posts = postsByTags[tagName]
+    console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+    console.log(tagName)
     createPage({
-      path: `/tagged/{$tagName}`,
+      path: `/tagged/${tagName.replace(/ /g, "")}`,
       component: tagTemplate,
       context: {
         posts,
