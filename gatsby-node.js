@@ -3,6 +3,7 @@ const path = require("path")
 module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions //2:40
   const workTemplate = path.resolve("./src/templates/work.js")
+  const tagTemplate = path.resolve("./src/templates/tagged.js")
   const res = await graphql(`
     query {
       allContentfulWork {
@@ -39,13 +40,12 @@ module.exports.createPages = async ({ graphql, actions }) => {
   //reduce tags
   const uniqueTags = [...new Set(allTags)]
   //make a page for each tag
-  const tagTemplate = path.resolve("./src/templates/tagged.js")
   uniqueTags.forEach(x => {
     createPage({
       component: tagTemplate,
       path: `/${x}`,
       context: {
-        slug: x,
+        slug: res.data.allContentfulWork.edges,
       },
     })
   })
