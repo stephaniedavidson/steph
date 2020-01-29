@@ -15,20 +15,24 @@ const Nav = () => {
   `)
   return (
     <nav className={navStyles.nav}>
-      <h1>{myConfig.site.siteMetadata.title}</h1>
-      <div className={navStyles.descriptor}>Creative generalist</div>
-      <ul>
-        <li>
-          <Link activeClassName={navStyles.active} to="/">
-            Work
-          </Link>
-        </li>
-        <li>
-          <Link activeClassName={navStyles.active} to="/contact">
-            About
-          </Link>
-        </li>
-      </ul>
+      <h1>
+        <Link to="../">{myConfig.site.siteMetadata.title}</Link>
+      </h1>
+      <div className={navStyles.descriptor}>
+        <p>Creative generalist</p>
+        <ul>
+          <li>
+            <Link activeClassName={navStyles.active} to="/">
+              Work
+            </Link>
+          </li>
+          <li>
+            <Link activeClassName={navStyles.active} to="/contact">
+              About
+            </Link>
+          </li>
+        </ul>
+      </div>
     </nav>
   )
 }

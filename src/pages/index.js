@@ -51,9 +51,24 @@ const IndexPage = () => {
       <div className={indexStyles.filter}>
         Filter:{" "}
         <ul>
-          <li>Design</li>
-          <li>Motion</li>
-          <li>Illustration</li>
+          <li>
+            <Link to="./design">Design & development</Link>
+          </li>
+          <li>
+            <Link to="./motion">Motion</Link>
+          </li>
+          <li>
+            <Link to="./illustration">Illustration</Link>
+          </li>
+          <li>
+            <a
+              href="https://bloombergcyber.tumblr.com"
+              target="_blank"
+              rel="noopener"
+            >
+              Art direction
+            </a>
+          </li>
         </ul>
       </div>
       <div className={indexStyles.indexWrapper}>

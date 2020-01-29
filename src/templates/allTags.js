@@ -4,22 +4,19 @@ import Link from "gatsby-link"
 import Head from "../components/head"
 import Layout from "../components/layout"
 
-const Tags = ({ pathContext }) => {
-  const { posts, tagName } = pathContext
+const AllTags = ({ pageContext }) => {
+  const { tags } = pageContext
 
-  if (posts) {
+  if (tags) {
     return (
       <Layout>
-        <Head title={`Tagged ${tagName}`} />
-        <h1>
-          Tagged <em>{tagName}</em>
-        </h1>
+        <Head title="All tags" />
         <ul>
           <li>
-            {posts.map(post => {
+            {tags.map(tag => {
               return (
                 <li>
-                  <Link to={post.slug.replace(/ /g, "")}>{post.title}</Link>
+                  <Link to={`./tagged/${tag.replace(/ /g, "")}`}>{tag}</Link>
                 </li>
               )
             })}
@@ -30,4 +27,4 @@ const Tags = ({ pathContext }) => {
   }
 }
 
-export default Tags
+export default AllTags
