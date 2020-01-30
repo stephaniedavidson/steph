@@ -26,7 +26,7 @@ const Filter = () => {
           <a
             href="https://bloombergcyber.tumblr.com"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
           >
             Art direction
           </a>
