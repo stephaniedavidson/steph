@@ -27,7 +27,21 @@ const Tags = ({ pathContext }) => {
                 <Link to={`work/${post.slug.replace(/ /g, "")}`}>
                   {post.title}
                   {console.log(post.heroImage.file.contentType)}
-                  <img src={post.heroImage.file.url} alt="artwork" />
+
+                  {post.heroImage.file.contentType === "video/mp4" && (
+                    <video
+                      src={post.heroImage.file.url}
+                      width="100%"
+                      loop
+                      autoPlay
+                      muted
+                      playsInline
+                      preload="none"
+                    ></video>
+                  )}
+                  {post.heroImage.file.contentType === "image/png" && (
+                    <img src={post.heroImage.file.url} alt="artwork" />
+                  )}
                 </Link>
               </div>
             )
