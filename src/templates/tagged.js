@@ -3,6 +3,7 @@ import Link from "gatsby-link"
 
 import Head from "../components/head"
 import Layout from "../components/layout"
+import Filter from "../components/filter"
 
 const Tags = ({ pathContext }) => {
   const { posts, tagName } = pathContext
@@ -11,9 +12,10 @@ const Tags = ({ pathContext }) => {
     return (
       <Layout>
         <Head title={`Tagged ${tagName}`} />
-        <h1>
+        <Filter />
+        <h2>
           Tagged <em>{tagName}</em>
-        </h1>
+        </h2>
         <ul>
           <li>
             {posts.map(post => {

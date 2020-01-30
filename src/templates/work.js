@@ -28,7 +28,7 @@ const Work = props => {
     let fileExt =
       myUrl.substring(myUrl.lastIndexOf(".") + 1, myUrl.length) || myUrl
     if (fileExt === "jpg" || fileExt === "png" || fileExt === "gif") {
-      return <img src={"https:" + myUrl} />
+      return <img src={"https:" + myUrl} alt="artwork" />
     } else if (fileExt === "mp4") {
       return (
         <video

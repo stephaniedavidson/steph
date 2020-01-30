@@ -1,0 +1,30 @@
+.filter {
+  margin-bottom: 1rem;
+  a {
+    text-decoration: none;
+    color: black;
+    border: 2px solid black;
+    border-radius: 6px;
+    padding: 0 6px;
+  }
+  a:hover {
+    background: goldenrod;
+    color: green !important;
+    border: 2px solid green;
+  }
+  a:visited {
+    color: black;
+  }
+  ul {
+    display: inline-block;
+  }
+  li {
+    font-size: 1.4rem;
+    font-family: "Helvetica", Helvetica, sans-serif;
+    display: inline-block;
+    margin: 0 4px;
+  }
+  .active {
+    background: hotpink;
+  }
+}
