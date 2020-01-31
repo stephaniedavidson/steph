@@ -37,6 +37,7 @@ const IndexPage = () => {
           {data.allContentfulWork.edges.map(edge => {
             return (
               <Link to={`/work/${edge.node.slug}`}>
+                {console.log(edge.node.heroImage.file.contentType)}
                 <div className={indexStyles.item} key={edge.node.slug}>
                   {edge.node.heroImage.file.contentType === "video/mp4" && (
                     <video
@@ -50,7 +51,22 @@ const IndexPage = () => {
                     ></video>
                   )}
                   {edge.node.heroImage.file.contentType === "image/png" && (
-                    <img src={edge.node.heroImage.file.url} alt="artwork" />
+                    <img
+                      src={edge.node.heroImage.file.url}
+                      alt={edge.node.heroImage.title}
+                    />
+                  )}
+                  {edge.node.heroImage.file.contentType === "image/jpeg" && (
+                    <img
+                      src={edge.node.heroImage.file.url}
+                      alt={edge.node.heroImage.title}
+                    />
+                  )}
+                  {edge.node.heroImage.file.contentType === "image/gif" && (
+                    <img
+                      src={edge.node.heroImage.file.url}
+                      alt={edge.node.heroImage.title}
+                    />
                   )}
                   <div className={indexStyles.itemInfo}>
                     <h2>{edge.node.title}</h2>
