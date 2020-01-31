@@ -3,13 +3,14 @@ import Layout from "../components/layout"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import Head from "../components/head"
 import indexStyles from "../components/index.module.scss"
+import Filter from "../components/filter"
 
 const IndexPage = () => {
   function printPicOrVid(myUrl) {
     let fileExt =
       myUrl.substring(myUrl.lastIndexOf(".") + 1, myUrl.length) || myUrl
     if (fileExt === "jpg" || fileExt === "png" || fileExt === "gif") {
-      return <img src={"https:" + myUrl} />
+      return <img src={"https:" + myUrl} alt="artwork" />
     } else if (fileExt === "mp4") {
       return (
         <video
@@ -48,29 +49,7 @@ const IndexPage = () => {
   return (
     <Layout>
       <Head title="Work" />
-      <div className={indexStyles.filter}>
-        Filter:{" "}
-        <ul>
-          <li>
-            <Link to="./design">Design & development</Link>
-          </li>
-          <li>
-            <Link to="./motion">Motion</Link>
-          </li>
-          <li>
-            <Link to="./illustration">Illustration</Link>
-          </li>
-          <li>
-            <a
-              href="https://bloombergcyber.tumblr.com"
-              target="_blank"
-              rel="noopener"
-            >
-              Art direction
-            </a>
-          </li>
-        </ul>
-      </div>
+      <Filter />
       <div className={indexStyles.indexWrapper}>
         {data.allContentfulWork.edges.map(edge => {
           return (
