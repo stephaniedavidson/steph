@@ -10,7 +10,6 @@ const createTagPages = (createPage, posts) => {
   const postsByTags = {}
   posts.forEach(({ node }) => {
     const splitTags = node.tags.split(",")
-    // console.log("@@@@@@@@@@@@@@@@@@@@@@@@", node.tags, splitTags)
     if (node.tags) {
       splitTags.forEach(tag => {
         if (!postsByTags[tag]) {
@@ -20,9 +19,6 @@ const createTagPages = (createPage, posts) => {
       })
     }
   })
-
-  // console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-  // console.log(postsByTags)
 
   const tags = Object.keys(postsByTags)
   //create ALL TAGS
@@ -36,8 +32,6 @@ const createTagPages = (createPage, posts) => {
   //create EACH TAG
   tags.forEach(tagName => {
     const posts = postsByTags[tagName]
-    // console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-    // console.log(tagName)
     createPage({
       path: `/${tagName.replace(/ /g, "")}`,
       component: tagTemplate,
@@ -59,6 +53,13 @@ module.exports.createPages = async ({ graphql, actions }) => {
             slug
             tags
             title
+            heroImage {
+              title
+              file {
+                url
+                contentType
+              }
+            }
           }
         }
       }

@@ -2,30 +2,10 @@ import React from "react"
 import Layout from "../components/layout"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import Head from "../components/head"
-import indexStyles from "../components/index.module.scss"
 import Filter from "../components/filter"
+import indexStyles from "../components/index.module.scss"
 
 const IndexPage = () => {
-  function printPicOrVid(myUrl) {
-    let fileExt =
-      myUrl.substring(myUrl.lastIndexOf(".") + 1, myUrl.length) || myUrl
-    if (fileExt === "jpg" || fileExt === "png" || fileExt === "gif") {
-      return <img src={"https:" + myUrl} alt="artwork" />
-    } else if (fileExt === "mp4") {
-      return (
-        <video
-          width="100%"
-          src={"https:" + myUrl}
-          loop
-          autoPlay
-          muted
-          playsInline
-        ></video>
-      )
-    } else {
-      return "invalid hero image"
-    }
-  }
   const data = useStaticQuery(graphql`
     query {
       allContentfulWork(sort: { fields: publishedDate, order: DESC }) {
@@ -39,6 +19,7 @@ const IndexPage = () => {
               title
               file {
                 url
+                contentType
               }
             }
           }
@@ -53,20 +34,30 @@ const IndexPage = () => {
       <div className={indexStyles.indexWrapper}>
         {data.allContentfulWork.edges.map(edge => {
           return (
-            <div key={edge.node.slug} data-tags={edge.node.tags.split(",")}>
-              <Link to={`/work/${edge.node.slug}`}>
-                <div className={indexStyles.item}>
-                  {edge.node.heroImage &&
-                    printPicOrVid(edge.node.heroImage.file.url)}
-                  <div className={indexStyles.itemInfo}>
-                    <h2>{edge.node.title}</h2>
-                    {edge.node.publishedDate}
-                    <br />
-                    Tags: {edge.node.tags}
-                  </div>
+            <Link to={`/work/${edge.node.slug}`}>
+              <div className={indexStyles.item} key={edge.node.slug}>
+                {edge.node.heroImage.file.contentType === "video/mp4" && (
+                  <video
+                    src={edge.node.heroImage.file.url}
+                    width="100%"
+                    loop
+                    autoPlay
+                    muted
+                    playsInline
+                    preload="none"
+                  ></video>
+                )}
+                {edge.node.heroImage.file.contentType === "image/png" && (
+                  <img src={edge.node.heroImage.file.url} alt="artwork" />
+                )}
+                <div className={indexStyles.itemInfo}>
+                  <h2>{edge.node.title}</h2>
+                  {edge.node.publishedDate}
+                  <br />
+                  Tags: {edge.node.tags}
                 </div>
-              </Link>
-            </div>
+              </div>
+            </Link>
           )
         })}
       </div>

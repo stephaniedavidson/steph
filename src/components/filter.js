@@ -3,15 +3,6 @@ import { Link } from "gatsby"
 import filterStyles from "./filter.module.scss"
 
 const Filter = () => {
-  function pathIncludes(word) {
-    return window.location.href.includes(word) ? activeStyle : "FALSEFALSE"
-  }
-
-  const activeStyle = {
-    color: "green",
-    background: "red",
-  }
-
   return (
     <div className={filterStyles.filter}>
       Filter:
@@ -35,7 +26,7 @@ const Filter = () => {
           <a
             href="https://bloombergcyber.tumblr.com"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
           >
             Art direction
           </a>
