@@ -4,6 +4,13 @@ module.exports = {
     author: "Steph Davidson",
   },
   plugins: [
+    "gatsby-plugin-page-transitions",
+    {
+      resolve: "gatsby-plugin-page-transitions",
+      options: {
+        transitionTime: 500,
+      },
+    },
     "gatsby-plugin-react-helmet",
     {
       resolve: "gatsby-source-contentful",
