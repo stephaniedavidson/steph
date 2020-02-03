@@ -44,7 +44,7 @@ const IndexPage = () => {
                     ? indexStyles.featured
                     : indexStyles.notFeatured
                 }`}
-                key={edge.node.slug}
+                key={edge.node.slug.replace(/ /g, "")}
               >
                 <Link to={`/work/${edge.node.slug}`}>
                   {edge.node.heroImage.file.contentType === "video/mp4" && (

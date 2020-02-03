@@ -4,6 +4,16 @@ import navStyles from "./nav.module.scss"
 import { graphql, useStaticQuery } from "gatsby"
 
 const Nav = () => {
+  function pathIncludes() {
+    if (
+      window.location.href.includes("motion") ||
+      window.location.href.includes("design") ||
+      window.location.href.includes("illustration")
+    ) {
+      return navStyles.active
+    }
+  }
+
   const myConfig = useStaticQuery(graphql`
     query {
       site {
@@ -22,7 +32,11 @@ const Nav = () => {
         <p>Creative generalist</p>
         <ul>
           <li>
-            <Link activeClassName={navStyles.active} to="/">
+            <Link
+              activeClassName={navStyles.active}
+              className={pathIncludes()}
+              to="/"
+            >
               Work
             </Link>
           </li>

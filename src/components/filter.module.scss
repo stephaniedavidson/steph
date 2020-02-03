@@ -8,9 +8,9 @@
     padding: 0 6px;
   }
   a:hover {
-    background: goldenrod;
-    color: green !important;
-    border: 2px solid green;
+    background: yellow;
+    color: hotpink !important;
+    border: 2px solid hotpink;
   }
   a:visited {
     color: black;
@@ -25,6 +25,8 @@
     margin: 0 4px;
   }
   .active {
-    background: hotpink;
+    background: green;
+    color: hotpink !important;
+    border: 2px solid hotpink;
   }
 }
