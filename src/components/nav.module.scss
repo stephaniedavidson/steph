@@ -5,6 +5,9 @@ nav {
   position: relative;
   display: flex;
   align-items: stretch;
+  @media (max-width: 900px) {
+    margin: 1rem;
+  }
   a {
     color: $grey;
     text-decoration: none;
@@ -25,20 +28,16 @@ nav {
   .descriptor {
     text-align: center;
     border: 4px solid green;
-    // box-shadow: 7px 7px 0px 0px red;
     color: black;
     width: 200px;
     background: goldenrod;
-    // padding: 6px;
     p {
       font-style: italic;
-      // font-size: 1.8rem;
       line-height: 2.2rem;
       height: 50%;
     }
     ul {
       font-family: Helvetica, sans-serif;
-      // margin-top: 14px;
       display: flex;
       width: 100%;
       height: 100%;

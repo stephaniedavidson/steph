@@ -38,9 +38,19 @@
 
 .featured {
   width: 100%;
+  flex-basis: 50%;
+  @media (max-width: 1200px) {
+    flex-basis: 75%;
+  }
+  @media (max-width: 900px) {
+    flex-basis: 100%;
+  }
 }
 .notFeatured {
-  max-width: 50%;
+  flex-basis: 25%;
+  @media (max-width: 600px) {
+    flex-basis: 100%;
+  }
 }
 
 .itemInfo {

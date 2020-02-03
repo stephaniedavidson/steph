@@ -8,6 +8,18 @@ $grey: #e2e2e2;
 
 html {
   font-size: 100%;
+  @media (max-width: 900px) {
+    font-size: 90%;
+  }
+  @media (max-width: 800px) {
+    font-size: 85%;
+  }
+  @media (max-width: 600px) {
+    font-size: 80%;
+  }
+  @media (max-width: 450px) {
+    font-size: 75%;
+  }
 }
 
 body {
@@ -15,8 +27,8 @@ body {
     no-repeat center center fixed;
   background-size: cover;
   font-family: "EB Garamond", serif;
-  font-size: 1.5rem;
   -webkit-font-smoothing: antialiased;
+  font-size: 1.5rem;
 }
 
 a {
@@ -38,6 +50,13 @@ img {
   border: 10px outset;
   padding: 1rem;
   margin: 0 2rem;
+  @media (max-width: 900px) {
+    margin: 0 1rem;
+    border: 7px outset;
+  }
+  @media (max-width: 620px) {
+    border: 4px outset;
+  }
 }
 h1,
 h2,
