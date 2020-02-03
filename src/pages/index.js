@@ -1,10 +1,11 @@
 import React from "react"
-import Layout from "../components/layout"
 import { Link, graphql, useStaticQuery } from "gatsby"
-import Head from "../components/head"
-import Filter from "../components/filter"
-import indexStyles from "../components/index.module.scss"
 import PageTransition from "gatsby-plugin-page-transitions"
+import Head from "../components/head"
+
+import Filter from "../components/filter"
+import Layout from "../components/layout"
+import indexStyles from "../components/index.module.scss"
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
@@ -30,8 +31,8 @@ const IndexPage = () => {
     }
   `)
   return (
-    <PageTransition>
-      <Layout>
+    <Layout>
+      <PageTransition>
         <Head title="Work" />
         <Filter />
         <div className={indexStyles.indexWrapper}>
@@ -88,8 +89,8 @@ const IndexPage = () => {
             )
           })}
         </div>
-      </Layout>
-    </PageTransition>
+      </PageTransition>
+    </Layout>
   )
 }
 

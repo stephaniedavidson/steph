@@ -8,8 +8,8 @@ import contactStyles from "./contact.module.scss"
 
 const Contact = () => {
   return (
-    <PageTransition>
-      <Layout>
+    <Layout>
+      <PageTransition>
         <Head title="Contact" />
         <div className={contactStyles.wrapper}>
           <div className={contactStyles.aboutSection}>
@@ -185,13 +185,15 @@ const Contact = () => {
               </li>
             </ul>
             <ul>
-              <a
-                href="http://www.txtbooks.us/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                TXTbooks
-              </a>
+              <li>
+                <a
+                  href="http://www.txtbooks.us/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  TXTbooks
+                </a>
+              </li>
             </ul>
           </section>
 
@@ -273,8 +275,8 @@ const Contact = () => {
             </ul>
           </section>
         </div>
-      </Layout>
-    </PageTransition>
+      </PageTransition>
+    </Layout>
   )
 }
 
