@@ -44,6 +44,12 @@ const Tags = ({ pathContext }) => {
                     {post.heroImage.file.contentType === "image/png" && (
                       <img src={post.heroImage.file.url} alt="artwork" />
                     )}
+                    {post.heroImage.file.contentType === "image/jpeg" && (
+                      <img src={post.heroImage.file.url} alt="artwork" />
+                    )}
+                    {post.heroImage.file.contentType === "image/gif" && (
+                      <img src={post.heroImage.file.url} alt="artwork" />
+                    )}
                   </Link>
                 </div>
               )

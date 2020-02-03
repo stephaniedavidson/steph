@@ -15,6 +15,7 @@ const IndexPage = () => {
             title
             slug
             tags
+            featured
             publishedDate(formatString: "MMMM Do, YYYY")
             heroImage {
               title
@@ -36,9 +37,15 @@ const IndexPage = () => {
         <div className={indexStyles.indexWrapper}>
           {data.allContentfulWork.edges.map(edge => {
             return (
-              <Link to={`/work/${edge.node.slug}`}>
-                {console.log(edge.node.heroImage.file.contentType)}
-                <div className={indexStyles.item} key={edge.node.slug}>
+              <div
+                className={`${indexStyles.item} ${
+                  edge.node.featured
+                    ? indexStyles.featured
+                    : indexStyles.notFeatured
+                }`}
+                key={edge.node.slug}
+              >
+                <Link to={`/work/${edge.node.slug}`}>
                   {edge.node.heroImage.file.contentType === "video/mp4" && (
                     <video
                       src={edge.node.heroImage.file.url}
@@ -74,8 +81,8 @@ const IndexPage = () => {
                     <br />
                     Tags: {edge.node.tags}
                   </div>
-                </div>
-              </Link>
+                </Link>
+              </div>
             )
           })}
         </div>

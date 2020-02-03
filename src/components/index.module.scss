@@ -12,21 +12,35 @@
 }
 
 .indexWrapper {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  grid-gap: 0.5rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  // display: grid;
+  // grid-template-columns: 50% 50%;
+  // grid-gap: 0.5rem;
   a:hover {
     color: black;
   }
 }
 
 .item {
+  flex-grow: 1;
   position: relative;
   transition: all 0.25s ease;
+  padding: 0.5rem;
   img,
   video {
+    width: 100%;
     display: block;
   }
+}
+
+.featured {
+  width: 100%;
+}
+.notFeatured {
+  max-width: 50%;
 }
 
 .itemInfo {
