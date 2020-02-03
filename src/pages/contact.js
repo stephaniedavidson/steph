@@ -184,16 +184,20 @@ const Contact = () => {
                 </a>
               </li>
             </ul>
+            <ul>
+              <a
+                href="http://www.txtbooks.us/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                TXTbooks
+              </a>
+            </ul>
           </section>
 
           <section>
             <h2>Sick websites</h2>
             <ul>
-              <li>
-                <a href="" target="_blank" rel="noopener noreferrer">
-                  Glitch
-                </a>
-              </li>
               <li>
                 <a
                   href="http://hallointer.net/"
@@ -213,7 +217,11 @@ const Contact = () => {
                 </a>
               </li>
               <li>
-                <a href="" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="http://ultrazapping.tumblr.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Ultrazapping
                 </a>
               </li>

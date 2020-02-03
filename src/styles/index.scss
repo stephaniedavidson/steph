@@ -29,6 +29,11 @@ body {
   font-family: "EB Garamond", serif;
   -webkit-font-smoothing: antialiased;
   font-size: 1.5rem;
+  line-height: 1.75rem;
+}
+
+p {
+  margin: 0.5rem 0;
 }
 
 a {
@@ -66,12 +71,15 @@ h3 {
 
 h1 {
   font-size: 4rem;
+  line-height: 4.3rem;
 }
 h2 {
   font-size: 3rem;
+  line-height: 3.25rem;
 }
 h3 {
   font-size: 2rem;
+  line-height: 2rem;
 }
 footer {
   padding: 0.5rem;
