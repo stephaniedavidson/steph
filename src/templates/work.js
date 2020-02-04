@@ -2,9 +2,8 @@ import React from "react"
 import { graphql } from "gatsby"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import PageTransition from "gatsby-plugin-page-transitions"
-
-//takes the contentful rich text json and spits out component
 import Head from "../components/head"
+
 import Layout from "../components/layout"
 
 export const query = graphql`
@@ -16,6 +15,7 @@ export const query = graphql`
         title
         file {
           url
+          contentType
         }
       }
       blurb {
@@ -34,17 +34,29 @@ const Work = props => {
       },
     },
   }
+  const fileType = props.data.contentfulWork.heroImage.file.contentType
+  let isVideo = false
+  let isPic = false
+  if (
+    fileType === "image/jpeg" ||
+    fileType === "image/png" ||
+    fileType === "image/gif"
+  ) {
+    isPic = true
+  } else if (fileType === "video/mp4") {
+    isVideo = true
+  }
   return (
-    <PageTransition>
-      <Layout>
+    <Layout>
+      <PageTransition>
         <Head title={props.data.contentfulWork.title} />
         <h1>{props.data.contentfulWork.title}</h1>
         <p>{props.data.contentfulWork.publishedDate}</p>
-
-        {props.data.contenfulWork.heroImage.file.contentType ===
-          "video/mp4" && (
+        {console.log("@@@@@@@@@@@@@@@@@@@@@@")}
+        {console.log(props.data.contentfulWork)}
+        {isVideo && (
           <video
-            src={props.data.contenfulWork.heroImage.file.url}
+            src={props.data.contentfulWork.heroImage.file.url}
             width="100%"
             loop
             autoPlay
@@ -52,24 +64,24 @@ const Work = props => {
             playsInline
             preload="none"
           ></video>
-        )}
-        {props.data.contenfulWork.heroImage.file.contentType ===
-          "image/png" && (
+        )}{" "}
+        <br />
+        {isPic && (
           <img
-            src={props.data.contenfulWork.heroImage.file.url}
-            alt="artwork"
+            src={props.data.contentfulWork.heroImage.file.url}
+            alt={props.data.contentfulWork.heroImage.title}
           />
         )}
-
+        <br />
+        <br />
+        {props.data.contentfulWork.heroImage.file.url}
         {documentToReactComponents(
           props.data.contentfulWork.blurb.json,
           options
         )}
-      </Layout>
-    </PageTransition>
+      </PageTransition>
+    </Layout>
   )
 }
-
-//4:25
 
 export default Work
