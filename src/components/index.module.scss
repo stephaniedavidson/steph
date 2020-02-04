@@ -77,3 +77,9 @@ $grey: #e2e2e2;
     opacity: 1;
   }
 }
+
+.workBody {
+  margin-top: 2rem;
+  max-width: 640px;
+  margin-left: calc(100% - 640px);
+}

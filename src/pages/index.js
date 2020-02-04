@@ -6,6 +6,7 @@ import Head from "../components/head"
 import Filter from "../components/filter"
 import Layout from "../components/layout"
 import indexStyles from "../components/index.module.scss"
+import { isPic, isVid } from "../utils/index.js"
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
@@ -35,6 +36,7 @@ const IndexPage = () => {
       <PageTransition>
         <Head title="Work" />
         <Filter />
+
         <div className={indexStyles.indexWrapper}>
           {data.allContentfulWork.edges.map(edge => {
             return (
@@ -47,7 +49,7 @@ const IndexPage = () => {
                 key={edge.node.slug.replace(/ /g, "")}
               >
                 <Link to={`/work/${edge.node.slug}`}>
-                  {edge.node.heroImage.file.contentType === "video/mp4" && (
+                  {isVid(edge.node.heroImage.file.contentType) && (
                     <video
                       src={edge.node.heroImage.file.url}
                       width="100%"
@@ -58,28 +60,16 @@ const IndexPage = () => {
                       preload="none"
                     ></video>
                   )}
-                  {edge.node.heroImage.file.contentType === "image/png" && (
+                  {isPic(edge.node.heroImage.file.contentType) && (
                     <img
                       src={edge.node.heroImage.file.url}
                       alt={edge.node.heroImage.title}
                     />
                   )}
-                  {edge.node.heroImage.file.contentType === "image/jpeg" && (
-                    <img
-                      src={edge.node.heroImage.file.url}
-                      alt={edge.node.heroImage.title}
-                    />
-                  )}
-                  {edge.node.heroImage.file.contentType === "image/gif" && (
-                    <img
-                      src={edge.node.heroImage.file.url}
-                      alt={edge.node.heroImage.title}
-                    />
-                  )}
+
                   <div className={indexStyles.itemInfo}>
                     <h2>{edge.node.title}</h2>
                     <span>{edge.node.publishedDate}</span>
-
                     <p>
                       Tags: <em>{edge.node.tags}</em>
                     </p>
