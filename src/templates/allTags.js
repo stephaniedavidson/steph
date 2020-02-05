@@ -10,8 +10,8 @@ const AllTags = ({ pageContext }) => {
 
   if (tags) {
     return (
-      <PageTransition>
-        <Layout>
+      <Layout>
+        <PageTransition>
           <Head title="All tags" />
           <ul>
             <li>
@@ -24,8 +24,8 @@ const AllTags = ({ pageContext }) => {
               })}
             </li>
           </ul>
-        </Layout>
-      </PageTransition>
+        </PageTransition>
+      </Layout>
     )
   }
 }

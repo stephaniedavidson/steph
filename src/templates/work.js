@@ -32,7 +32,21 @@ const Work = props => {
       "embedded-asset-block": node => {
         const alt = node.data.target.fields.title["en-US"]
         const url = node.data.target.fields.file["en-US"].url
-        return <img alt={alt} src={url} />
+        if (isPic) {
+          return <img alt={alt} src={url} />
+        } else if (isVid) {
+          return (
+            <video
+              src={url}
+              width="100%"
+              loop
+              autoPlay
+              muted
+              playsInline
+              preload="none"
+            ></video>
+          )
+        }
       },
     },
   }

@@ -9,12 +9,14 @@ const createTagPages = (createPage, posts) => {
   const allTagTemplate = path.resolve("./src/templates/allTags.js")
   const postsByTags = {}
   posts.forEach(({ node }) => {
-    const splitTags = node.tags.split(",")
+    const splitTags = node.tags.split(",").map(t => t.trim())
+    //split tags is an array of strings of tags for each post ['illustration', 'motion']
     if (node.tags) {
       splitTags.forEach(tag => {
         if (!postsByTags[tag]) {
           postsByTags[tag] = []
         }
+        //postsByTags[tag] is all the post objects with that tag
         postsByTags[tag].push(node)
       })
     }
@@ -47,7 +49,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const res = await graphql(`
     query {
-      allContentfulWork {
+      allContentfulWork(sort: { fields: publishedDate, order: DESC }) {
         edges {
           node {
             slug
