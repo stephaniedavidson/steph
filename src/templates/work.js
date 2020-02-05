@@ -41,7 +41,7 @@ const Work = props => {
     <Layout>
       <PageTransition>
         <Head title={props.data.contentfulWork.title} />
-        <h1>{props.data.contentfulWork.title}</h1>
+        <h2 className={indexStyles.title}>{props.data.contentfulWork.title}</h2>
         <p>{props.data.contentfulWork.publishedDate}</p>
         {isVid(fileType) && (
           <video

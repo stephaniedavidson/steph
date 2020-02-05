@@ -7,8 +7,10 @@ const Layout = props => {
   return (
     <div className="wrapper">
       <Nav />
-      <div className="content">{props.children}</div>
-      <Footer />
+      <div className="content">
+        {props.children}
+        <Footer />
+      </div>
     </div>
   )
 }

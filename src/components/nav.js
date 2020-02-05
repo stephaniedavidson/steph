@@ -8,6 +8,7 @@ const Nav = () => {
     if (
       window.location.href.includes("motion") ||
       window.location.href.includes("design") ||
+      window.location.href.includes("work") ||
       window.location.href.includes("illustration")
     ) {
       return navStyles.active
