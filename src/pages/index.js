@@ -2,7 +2,7 @@ import React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import PageTransition from "gatsby-plugin-page-transitions"
 import Head from "../components/head"
-
+import Img from "gatsby-image"
 import Filter from "../components/filter"
 import Layout from "../components/layout"
 import indexStyles from "../components/index.module.scss"
@@ -18,8 +18,11 @@ const IndexPage = () => {
             slug
             tags
             featured
-            publishedDate(formatString: "MMMM Do, YYYY")
+            publishedDate(formatString: "YYYY")
             heroImage {
+              fluid(maxWidth: 1800) {
+                ...GatsbyContentfulFluid
+              }
               title
               file {
                 url
@@ -61,15 +64,14 @@ const IndexPage = () => {
                     ></video>
                   )}
                   {isPic(edge.node.heroImage.file.contentType) && (
-                    <img
-                      src={edge.node.heroImage.file.url}
+                    <Img
+                      fluid={edge.node.heroImage.fluid}
                       alt={edge.node.heroImage.title}
                     />
                   )}
 
                   <div className={indexStyles.itemInfo}>
                     <h2>{edge.node.title}</h2>
-                    <span>{edge.node.publishedDate}</span>
                     <p>
                       Tags: <em>{edge.node.tags}</em>
                     </p>

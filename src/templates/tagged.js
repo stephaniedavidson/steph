@@ -7,8 +7,8 @@ import Layout from "../components/layout"
 import Filter from "../components/filter"
 import indexStyles from "../components/index.module.scss"
 
-const Tags = ({ pathContext }) => {
-  const { posts, tagName } = pathContext
+const Tags = ({ pageContext }) => {
+  const { posts, tagName } = pageContext
 
   if (posts) {
     return (
