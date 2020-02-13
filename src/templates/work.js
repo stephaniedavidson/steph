@@ -82,8 +82,6 @@ const Work = props => {
           />
         )}
         <section className={workStyles.workBody}>
-          {console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@")}
-          {console.log(props.data.contentfulWork.blurb.json)}
           {documentToReactComponents(
             props.data.contentfulWork.blurb.json,
             options
