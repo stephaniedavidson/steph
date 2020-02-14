@@ -4,6 +4,9 @@ module.exports = {
     author: "Steph Davidson",
   },
   plugins: [
+    {
+      resolve: "gatsby-transformer-sharp",
+    },
     "gatsby-plugin-page-transitions",
     {
       resolve: "gatsby-plugin-page-transitions",
@@ -27,7 +30,13 @@ module.exports = {
         path: `${__dirname}/src/`,
       },
     },
-    "gatsby-plugin-sharp",
+    {
+      resolve: "gatsby-plugin-sharp",
+      options: {
+        defaultQuality: 85,
+        stripMetadata: true,
+      },
+    },
     {
       resolve: "gatsby-transformer-remark",
       options: {

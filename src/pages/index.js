@@ -8,6 +8,8 @@ import Layout from "../components/layout"
 import indexStyles from "../components/index.module.scss"
 import { isPic, isVid } from "../utils/index.js"
 
+import Img from "gatsby-image"
+
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
     query {
@@ -21,6 +23,9 @@ const IndexPage = () => {
             publishedDate(formatString: "MMMM Do, YYYY")
             heroImage {
               title
+              fluid(maxWidth: 1800) {
+                ...GatsbyContentfulFluid_noBase64
+              }
               file {
                 url
                 contentType
@@ -61,8 +66,8 @@ const IndexPage = () => {
                     ></video>
                   )}
                   {isPic(edge.node.heroImage.file.contentType) && (
-                    <img
-                      src={edge.node.heroImage.file.url}
+                    <Img
+                      fluid={edge.node.heroImage.fluid}
                       alt={edge.node.heroImage.title}
                     />
                   )}

@@ -4,6 +4,8 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import PageTransition from "gatsby-plugin-page-transitions"
 import Head from "../components/head"
 
+import Img from "gatsby-image"
+
 import { isPic, isVid } from "../utils/index.js"
 import Layout from "../components/layout"
 import indexStyles from "../components/index.module.scss"
@@ -15,6 +17,9 @@ export const query = graphql`
       publishedDate(formatString: "MMMM Do, YYYY")
       heroImage {
         title
+        fluid(maxWidth: 1800) {
+          ...GatsbyContentfulFluid_noBase64
+        }
         file {
           url
           contentType
@@ -33,7 +38,7 @@ const Work = props => {
         const alt = node.data.target.fields.title["en-US"]
         const url = node.data.target.fields.file["en-US"].url
         if (isPic) {
-          return <img alt={alt} src={url} />
+          return <img alt={alt} src={url} key={alt} />
         } else if (isVid) {
           return (
             <video
@@ -69,8 +74,8 @@ const Work = props => {
           ></video>
         )}
         {isPic(fileType) && (
-          <img
-            src={props.data.contentfulWork.heroImage.file.url}
+          <Img
+            fluid={props.data.contentfulWork.heroImage.fluid}
             alt={props.data.contentfulWork.heroImage.title}
           />
         )}

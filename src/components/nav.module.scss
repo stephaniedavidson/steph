@@ -1,10 +1,14 @@
 $grey: #e2e2e2;
 nav {
   color: $grey;
-  margin: 1rem 2rem;
+  margin: 1rem auto;
   position: relative;
   display: flex;
   align-items: stretch;
+  max-width: 1800px;
+  @media (max-width: 1800px) {
+    margin: 1rem 2rem;
+  }
   @media (max-width: 900px) {
     margin: 1rem;
   }

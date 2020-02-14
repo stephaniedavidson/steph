@@ -11,7 +11,7 @@ const Contact = () => {
     <Layout>
       <PageTransition>
         <Head title="Contact" />
-        <div className={contactStyles.wrapper}>
+        <div className={contactStyles.aboutWrapper}>
           <div className={contactStyles.aboutSection}>
             <h2>About</h2>
             <p>Graphic designer from Toronto living in New York. </p>
@@ -58,13 +58,13 @@ const Contact = () => {
               </div>
               <div className={contactStyles.label}>HTML</div>
               <div className={contactStyles.powerBar}>
-                <div className={contactStyles.level2}></div>
-              </div>
-              <div className={contactStyles.label}>AUDITION</div>
-              <div className={contactStyles.powerBar}>
-                <div className={contactStyles.level2}></div>
+                <div className={contactStyles.level4}></div>
               </div>
               <div className={contactStyles.label}>CSS</div>
+              <div className={contactStyles.powerBar}>
+                <div className={contactStyles.level3}></div>
+              </div>
+              <div className={contactStyles.label}>AUDITION</div>
               <div className={contactStyles.powerBar}>
                 <div className={contactStyles.level2}></div>
               </div>
@@ -72,18 +72,10 @@ const Contact = () => {
               <div className={contactStyles.powerBar}>
                 <div className={contactStyles.level1}></div>
               </div>
-              <div className={contactStyles.label}>Fortnite</div>
-              <div className={contactStyles.powerBar}>
-                <div className={contactStyles.level1}></div>
-              </div>
-              <div className={contactStyles.label}>Chess</div>
-              <div className={contactStyles.powerBar}>
-                <div className={contactStyles.level1}></div>
-              </div>
             </div>
           </section>
 
-          <section>
+          <section className={contactStyles.rigSection}>
             <h2>My rig</h2>
             <img src={hog} alt="my rendering hog" />
             <ul>

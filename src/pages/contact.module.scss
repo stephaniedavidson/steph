@@ -1,4 +1,7 @@
-.wrapper {
+.aboutWrapper {
+  h2 {
+    margin-bottom: 1rem;
+  }
   display: grid;
   grid-template-columns: 50% 50%;
   grid-template-rows: auto auto auto;
@@ -76,16 +79,16 @@
 
 @keyframes level1 {
   0% {
-    width: 24%;
+    width: 43%;
   }
   25% {
-    width: 19%;
+    width: 35%;
   }
   50% {
-    width: 30%;
+    width: 35%;
   }
   100% {
-    width: 32%;
+    width: 45%;
   }
 }
 
