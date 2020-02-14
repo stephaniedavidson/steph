@@ -2,13 +2,11 @@ import React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import PageTransition from "gatsby-plugin-page-transitions"
 import Head from "../components/head"
-
+import Img from "gatsby-image"
 import Filter from "../components/filter"
 import Layout from "../components/layout"
 import indexStyles from "../components/index.module.scss"
 import { isPic, isVid } from "../utils/index.js"
-
-import Img from "gatsby-image"
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
@@ -20,12 +18,12 @@ const IndexPage = () => {
             slug
             tags
             featured
-            publishedDate(formatString: "MMMM Do, YYYY")
+            publishedDate(formatString: "YYYY")
             heroImage {
-              title
               fluid(maxWidth: 1800) {
-                ...GatsbyContentfulFluid_noBase64
+                ...GatsbyContentfulFluid
               }
+              title
               file {
                 url
                 contentType
@@ -74,7 +72,6 @@ const IndexPage = () => {
 
                   <div className={indexStyles.itemInfo}>
                     <h2>{edge.node.title}</h2>
-                    <span>{edge.node.publishedDate}</span>
                     <p>
                       Tags: <em>{edge.node.tags}</em>
                     </p>

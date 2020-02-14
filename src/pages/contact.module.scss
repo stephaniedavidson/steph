@@ -5,6 +5,8 @@
   display: grid;
   grid-template-columns: 50% 50%;
   grid-template-rows: auto auto auto;
+  grid-auto-flow: row;
+  grid-gap: 1rem;
   section {
     margin: 2rem 0;
     img {
@@ -15,25 +17,20 @@
       list-style-type: circle;
     }
   }
+  @media (max-width: 1010px) {
+    grid-template-columns: 100%;
+  }
 }
 
 .aboutSection {
-  grid-row: 1;
-  grid-column: 1;
 }
 .contactSection {
-  grid-row: 1;
-  grid-column: 2;
 }
 .powerLevelsSection {
-  grid-row: 2;
-  grid-column: 1;
 }
 .rigSection {
-  grid-row: 2;
 }
 .coolFriendsSection {
-  grid-row: 3;
 }
 
 .powerBars {
