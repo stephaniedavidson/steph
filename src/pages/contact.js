@@ -83,7 +83,7 @@ const Contact = () => {
             </div>
           </section>
 
-          <section>
+          <section className={contactStyles.rigSection}>
             <h2>My rig</h2>
             <img src={hog} alt="my rendering hog" />
             <ul>

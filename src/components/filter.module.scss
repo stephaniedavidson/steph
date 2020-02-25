@@ -28,5 +28,12 @@
     background: green;
     color: hotpink !important;
     border: 2px solid hotpink;
+    cursor: default;
+  }
+  .active:hover {
+    background: green;
+    color: hotpink !important;
+    border: 2px solid hotpink;
+    cursor: default;
   }
 }

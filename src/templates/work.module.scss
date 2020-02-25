@@ -1,5 +1,7 @@
 .pubDate {
-  color: hotpink;
+  display: inline-block;
+  float: right;
+  line-height: 4rem;
 }
 
 .workBody {
@@ -8,5 +10,5 @@
 }
 
 .title {
-  margin-bottom: 2rem;
+  display: inline-block;
 }

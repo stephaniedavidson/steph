@@ -71,7 +71,7 @@ const IndexPage = () => {
                   )}
 
                   <div className={indexStyles.itemInfo}>
-                    <h2>{edge.node.title}</h2>
+                    <h3>{edge.node.title}</h3>
                     <p>
                       Tags: <em>{edge.node.tags}</em>
                     </p>

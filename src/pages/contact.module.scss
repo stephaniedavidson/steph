@@ -27,7 +27,9 @@
   grid-column: 1;
 }
 .rigSection {
-  grid-row: 2;
+  h2 {
+    margin-bottom: 1rem;
+  }
 }
 .coolFriendsSection {
   grid-row: 3;
