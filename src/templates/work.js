@@ -19,6 +19,9 @@ export const query = graphql`
           ...GatsbyContentfulFluid
         }
         title
+        fluid(maxWidth: 1800) {
+          ...GatsbyContentfulFluid_noBase64
+        }
         file {
           url
           contentType
@@ -38,7 +41,7 @@ const Work = props => {
         const url = node.data.target.fields.file["en-US"].url
         // const url = node.data.target.fields.fluid
         if (isPic) {
-          return <img alt={alt} src={url} />
+          return <img alt={alt} src={url} key={alt} />
         } else if (isVid) {
           return (
             <video

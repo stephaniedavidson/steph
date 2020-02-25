@@ -51,12 +51,16 @@ img {
   max-width: 100%;
 }
 .content {
+  max-width: 1800px;
   background: $grey;
   border: 10px outset;
   padding: 1rem;
-  margin: 0 2rem;
+  margin: 0 auto 2rem auto;
+  @media (max-width: 1800px) {
+    margin: 0 2rem 2rem 2rem;
+  }
   @media (max-width: 900px) {
-    margin: 0 1rem;
+    margin: 0 1rem 1rem 1rem;
     border: 7px outset;
   }
   @media (max-width: 620px) {

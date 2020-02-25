@@ -1,7 +1,12 @@
-.wrapper {
+.aboutWrapper {
+  h2 {
+    margin-bottom: 1rem;
+  }
   display: grid;
   grid-template-columns: 50% 50%;
   grid-template-rows: auto auto auto;
+  grid-auto-flow: row;
+  grid-gap: 1rem;
   section {
     margin: 2rem 0;
     img {
@@ -12,28 +17,24 @@
       list-style-type: circle;
     }
   }
+  @media (max-width: 1010px) {
+    grid-template-columns: 100%;
+  }
 }
 
-.aboutSection {
-  grid-row: 1;
-  grid-column: 1;
-}
-.contactSection {
-  grid-row: 1;
-  grid-column: 2;
-}
-.powerLevelsSection {
-  grid-row: 2;
-  grid-column: 1;
-}
+// .aboutSection {
+// }
+// .contactSection {
+// }
+// .powerLevelsSection {
+// }
 .rigSection {
   h2 {
     margin-bottom: 1rem;
   }
 }
-.coolFriendsSection {
-  grid-row: 3;
-}
+// .coolFriendsSection {
+// }
 
 .powerBars {
   display: grid;
@@ -78,16 +79,16 @@
 
 @keyframes level1 {
   0% {
-    width: 24%;
+    width: 43%;
   }
   25% {
-    width: 19%;
+    width: 35%;
   }
   50% {
-    width: 30%;
+    width: 35%;
   }
   100% {
-    width: 32%;
+    width: 45%;
   }
 }
 

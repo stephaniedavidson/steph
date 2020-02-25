@@ -11,13 +11,13 @@ const Contact = () => {
     <Layout>
       <PageTransition>
         <Head title="Contact" />
-        <div className={contactStyles.wrapper}>
+        <div className={contactStyles.aboutWrapper}>
           <div className={contactStyles.aboutSection}>
             <h2>About</h2>
-            <p>Graphic designer from Toronto living in New York. </p>
+            <p>Graphic designer type person from Toronto living in New York.</p>
             <p>
               <img
-                src="https://66.media.tumblr.com/0857d4ac5e1127c0bbd12e60d433138f/tumblr_ntnf33hIie1qzy1h1o1_500.gif"
+                src="https://66.media.tumblr.com/21611a83f8d3a2d293e1d71c3a44533b/tumblr_nv3y6xN8MZ1qzy1h1o1_1280.jpg"
                 alt="me"
                 style={{ width: "200px" }}
               />
@@ -26,7 +26,14 @@ const Contact = () => {
 
           <section className={contactStyles.contactSection}>
             <h2>Contact</h2>
-            <a href="mailto:stephcdavidson@gmail.com">my email</a>
+            <a href="mailto:stephcdavidson@gmail.com">my email</a> <br />
+            <a
+              href="https://twitter.com/stephcd"
+              target="blank"
+              rel="noopener noreferrer"
+            >
+              Twitter @stephcd
+            </a>
           </section>
 
           <section className={contactStyles.powerLevelsSection}>
@@ -58,25 +65,17 @@ const Contact = () => {
               </div>
               <div className={contactStyles.label}>HTML</div>
               <div className={contactStyles.powerBar}>
-                <div className={contactStyles.level2}></div>
+                <div className={contactStyles.level4}></div>
+              </div>
+              <div className={contactStyles.label}>CSS</div>
+              <div className={contactStyles.powerBar}>
+                <div className={contactStyles.level3}></div>
               </div>
               <div className={contactStyles.label}>AUDITION</div>
               <div className={contactStyles.powerBar}>
                 <div className={contactStyles.level2}></div>
               </div>
-              <div className={contactStyles.label}>CSS</div>
-              <div className={contactStyles.powerBar}>
-                <div className={contactStyles.level2}></div>
-              </div>
               <div className={contactStyles.label}>Javascript</div>
-              <div className={contactStyles.powerBar}>
-                <div className={contactStyles.level1}></div>
-              </div>
-              <div className={contactStyles.label}>Fortnite</div>
-              <div className={contactStyles.powerBar}>
-                <div className={contactStyles.level1}></div>
-              </div>
-              <div className={contactStyles.label}>Chess</div>
               <div className={contactStyles.powerBar}>
                 <div className={contactStyles.level1}></div>
               </div>
