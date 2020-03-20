@@ -7,6 +7,7 @@ $grey: #e2e2e2;
 }
 
 html {
+  height: 100%;
   font-size: 100%;
   @media (max-width: 900px) {
     font-size: 90%;
@@ -23,9 +24,8 @@ html {
 }
 
 body {
-  background: url("https://techcrunch.com/wp-content/uploads/2015/08/clouds.jpg")
-    no-repeat center center fixed;
-  background-size: cover;
+  background: $grey;
+  height: 100%;
   font-family: "EB Garamond", serif;
   -webkit-font-smoothing: antialiased;
   font-size: 1.5rem;
@@ -52,20 +52,18 @@ img {
 }
 .content {
   max-width: 1800px;
-  background: $grey;
-  border: 10px outset;
-  padding: 1rem;
-  margin: 0 auto 2rem auto;
+  margin: 0 auto;
+  // border: 10px outset;
   @media (max-width: 1800px) {
-    margin: 0 2rem 2rem 2rem;
+    margin: 0 2rem;
   }
-  @media (max-width: 900px) {
-    margin: 0 1rem 1rem 1rem;
-    border: 7px outset;
-  }
-  @media (max-width: 620px) {
-    border: 4px outset;
-  }
+  // @media (max-width: 900px) {
+  //   margin: 0 1rem 1rem 1rem;
+  //   border: 7px outset;
+  // }
+  // @media (max-width: 620px) {
+  //   border: 4px outset;
+  // }
 }
 h1,
 h2,
