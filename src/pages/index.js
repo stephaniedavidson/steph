@@ -7,6 +7,7 @@ import Filter from "../components/filter"
 import Layout from "../components/layout"
 import indexStyles from "../components/index.module.scss"
 import { isPic, isVid } from "../utils/index.js"
+import Masonry from "../utils/masonry"
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
@@ -40,15 +41,11 @@ const IndexPage = () => {
         <Head title="Work" />
         <Filter />
 
-        <div className={indexStyles.indexWrapper}>
+        <Masonry>
           {data.allContentfulWork.edges.map(edge => {
             return (
               <div
-                className={`${indexStyles.item} ${
-                  edge.node.featured
-                    ? indexStyles.featured
-                    : indexStyles.notFeatured
-                }`}
+                className={`${indexStyles.item}`}
                 key={edge.node.slug.replace(/ /g, "")}
               >
                 <Link to={`/work/${edge.node.slug}`}>
@@ -71,16 +68,19 @@ const IndexPage = () => {
                   )}
 
                   <div className={indexStyles.itemInfo}>
-                    <h3>{edge.node.title}</h3>
-                    <p>
+                    <span className={indexStyles.itemTitle}>
+                      {edge.node.title}
+                    </span>
+                    <br />
+                    <span>
                       Tags: <em>{edge.node.tags}</em>
-                    </p>
+                    </span>
                   </div>
                 </Link>
               </div>
             )
           })}
-        </div>
+        </Masonry>
       </PageTransition>
     </Layout>
   )

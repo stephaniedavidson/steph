@@ -24,7 +24,7 @@ html {
 }
 
 body {
-  background: $grey;
+  background: white;
   height: 100%;
   font-family: "EB Garamond", serif;
   -webkit-font-smoothing: antialiased;
@@ -53,17 +53,9 @@ img {
 .content {
   max-width: 1800px;
   margin: 0 auto;
-  // border: 10px outset;
   @media (max-width: 1800px) {
     margin: 0 2rem;
   }
-  // @media (max-width: 900px) {
-  //   margin: 0 1rem 1rem 1rem;
-  //   border: 7px outset;
-  // }
-  // @media (max-width: 620px) {
-  //   border: 4px outset;
-  // }
 }
 h1,
 h2,
@@ -81,7 +73,7 @@ h2 {
 }
 h3 {
   font-size: 2.5rem;
-  line-height: 2.5rem;
+  line-height: 3.2rem;
 }
 footer {
   padding: 0.5rem 0;

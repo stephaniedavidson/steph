@@ -7,6 +7,8 @@ import Layout from "../components/layout"
 import Filter from "../components/filter"
 import indexStyles from "../components/index.module.scss"
 
+import Masonry from "../utils/masonry"
+
 const Tags = ({ pageContext }) => {
   const { posts, tagName } = pageContext
 
@@ -16,18 +18,14 @@ const Tags = ({ pageContext }) => {
         <PageTransition>
           <Head title={`Tagged ${tagName}`} />
           <Filter />
-          <h2>
+          <h3>
             Tagged <em>{tagName}</em>
-          </h2>
-          <div className={indexStyles.indexWrapper}>
+          </h3>
+          <Masonry>
             {posts.map(post => {
               return (
                 <div
-                  className={`${indexStyles.item} ${
-                    post.featured
-                      ? indexStyles.featured
-                      : indexStyles.notFeatured
-                  }`}
+                  className={`${indexStyles.item}`}
                   key={post.slug.replace(/ /g, "")}
                 >
                   <Link to={`work/${post.slug.replace(/ /g, "")}`}>
@@ -61,18 +59,19 @@ const Tags = ({ pageContext }) => {
                       />
                     )}
                     <div className={indexStyles.itemInfo}>
-                      <h2>{post.title}</h2>
-                      <span>{post.publishedDate}</span>
-
-                      <p>
+                      <span className={indexStyles.itemTitle}>
+                        {post.title}
+                      </span>
+                      <br />
+                      <span>
                         Tags: <em>{post.tags}</em>
-                      </p>
+                      </span>
                     </div>
                   </Link>
                 </div>
               )
             })}
-          </div>
+          </Masonry>
         </PageTransition>
       </Layout>
     )
