@@ -1,10 +1,6 @@
-$grey: #e2e2e2;
 nav {
-  color: $grey;
   margin: 1rem auto;
   position: relative;
-  display: flex;
-  align-items: stretch;
   max-width: 1800px;
   @media (max-width: 1800px) {
     margin: 1rem 2rem;
@@ -13,7 +9,6 @@ nav {
     margin: 1rem;
   }
   a {
-    color: $grey;
     text-decoration: none;
     transform-origin: center center;
   }
@@ -23,11 +18,14 @@ nav {
 
   h1 {
     display: inline-block;
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.75);
-    flex: 3;
     a {
       color: black !important;
     }
+  }
+  h2 {
+    line-height: 3rem;
+    font-size: 2.2rem;
+    margin: 20px 0;
   }
   .descriptor {
     text-align: center;

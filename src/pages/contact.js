@@ -2,8 +2,10 @@ import React from "react"
 import Layout from "../components/layout"
 import Head from "../components/head"
 import PageTransition from "gatsby-plugin-page-transitions"
+import Filter from "../components/filter"
 
 import hog from "./my_hog_2019.jpg"
+import aura from "./aura.jpg"
 import contactStyles from "./contact.module.scss"
 
 const Contact = () => {
@@ -11,29 +13,22 @@ const Contact = () => {
     <Layout>
       <PageTransition>
         <Head title="Contact" />
+        <Filter />
         <div className={contactStyles.aboutWrapper}>
-          <div className={contactStyles.aboutSection}>
+          <section className={contactStyles.contactSection}>
             <h2>About</h2>
             <p>Graphic designer type person from Toronto living in New York.</p>
-            <p>
-              <img
-                src="https://66.media.tumblr.com/21611a83f8d3a2d293e1d71c3a44533b/tumblr_nv3y6xN8MZ1qzy1h1o1_1280.jpg"
-                alt="me"
-                style={{ width: "200px" }}
-              />
-            </p>
-          </div>
-
-          <section className={contactStyles.contactSection}>
-            <h2>Contact</h2>
-            <a href="mailto:stephcdavidson@gmail.com">my email</a> <br />
+            <a href="mailto:stephcdavidson@gmail.com">email</a> <br />
             <a
               href="https://twitter.com/stephcd"
               target="blank"
               rel="noopener noreferrer"
             >
-              Twitter @stephcd
-            </a>
+              twitter
+            </a>{" "}
+            <p>
+              <img src={aura} style={{ width: "300px" }} alt="aura" />
+            </p>
           </section>
 
           <section className={contactStyles.powerLevelsSection}>
@@ -45,7 +40,10 @@ const Contact = () => {
               </div>
               <div className={contactStyles.label}>Illustrator</div>
               <div className={contactStyles.powerBar}>
-                <div className={contactStyles.level4}></div>
+                <div
+                  className={contactStyles.level4}
+                  style={{ animationDelay: ".5s" }}
+                ></div>
               </div>
               <div className={contactStyles.label}>After Effects</div>
               <div className={contactStyles.powerBar}>
@@ -53,7 +51,10 @@ const Contact = () => {
               </div>
               <div className={contactStyles.label}>Figma</div>
               <div className={contactStyles.powerBar}>
-                <div className={contactStyles.level3}></div>
+                <div
+                  className={contactStyles.level4}
+                  style={{ animationDelay: ".5s" }}
+                ></div>
               </div>
               <div className={contactStyles.label}>C4D</div>
               <div className={contactStyles.powerBar}>
@@ -61,7 +62,10 @@ const Contact = () => {
               </div>
               <div className={contactStyles.label}>ABLETON</div>
               <div className={contactStyles.powerBar}>
-                <div className={contactStyles.level3}></div>
+                <div
+                  className={contactStyles.level3}
+                  style={{ animationDelay: ".5s" }}
+                ></div>
               </div>
               <div className={contactStyles.label}>HTML</div>
               <div className={contactStyles.powerBar}>
@@ -69,15 +73,18 @@ const Contact = () => {
               </div>
               <div className={contactStyles.label}>CSS</div>
               <div className={contactStyles.powerBar}>
-                <div className={contactStyles.level3}></div>
-              </div>
-              <div className={contactStyles.label}>AUDITION</div>
-              <div className={contactStyles.powerBar}>
-                <div className={contactStyles.level2}></div>
+                <div
+                  className={contactStyles.level3}
+                  style={{ animationDelay: ".5s" }}
+                ></div>
               </div>
               <div className={contactStyles.label}>Javascript</div>
               <div className={contactStyles.powerBar}>
                 <div className={contactStyles.level1}></div>
+              </div>
+              <div className={contactStyles.label}>AUDITION</div>
+              <div className={contactStyles.powerBar}>
+                <div className={contactStyles.level2}></div>
               </div>
             </div>
           </section>

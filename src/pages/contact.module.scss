@@ -1,14 +1,13 @@
 .aboutWrapper {
+  margin-top: 2rem;
+  columns: 2;
+  column-gap: 1rem;
   h2 {
     margin-bottom: 1rem;
   }
-  display: grid;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: auto auto auto;
-  grid-auto-flow: row;
-  grid-gap: 1rem;
   section {
-    margin: 2rem 0;
+    margin: 0 0 4rem 0;
+    break-inside: avoid;
     img {
       max-width: 400px;
     }
@@ -18,23 +17,9 @@
     }
   }
   @media (max-width: 1010px) {
-    grid-template-columns: 100%;
+    columns: 1;
   }
 }
-
-// .aboutSection {
-// }
-// .contactSection {
-// }
-// .powerLevelsSection {
-// }
-.rigSection {
-  h2 {
-    margin-bottom: 1rem;
-  }
-}
-// .coolFriendsSection {
-// }
 
 .powerBars {
   display: grid;
@@ -82,13 +67,13 @@
     width: 43%;
   }
   25% {
-    width: 35%;
+    width: 55%;
   }
   50% {
     width: 35%;
   }
   100% {
-    width: 45%;
+    width: 50%;
   }
 }
 
@@ -117,6 +102,6 @@
     width: 85%;
   }
   100% {
-    width: 93%;
+    width: 100%;
   }
 }

@@ -29,25 +29,6 @@ const Nav = () => {
       <h1>
         <Link to="../">{myConfig.site.siteMetadata.title}</Link>
       </h1>
-      <div className={navStyles.descriptor}>
-        <p>Creative generalist</p>
-        <ul>
-          <li>
-            <Link
-              activeClassName={navStyles.active}
-              className={pathIncludes()}
-              to="/"
-            >
-              Work
-            </Link>
-          </li>
-          <li>
-            <Link activeClassName={navStyles.active} to="/contact">
-              About
-            </Link>
-          </li>
-        </ul>
-      </div>
     </nav>
   )
 }
