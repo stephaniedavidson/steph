@@ -1,0 +1,29 @@
+a:hover > .itemTitle {
+  opacity: 1;
+}
+
+a:hover {
+  color: black;
+}
+.itemTitle {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  background: linear-gradient(white, transparent);
+  opacity: 0;
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  text-decoration: none !important;
+  transition: all 0.25s ease;
+  font-size: 2rem;
+}
+.noShow {
+  height: 0;
+  overflow: hidden;
+}
+
+.relatively {
+  position: relative;
+}

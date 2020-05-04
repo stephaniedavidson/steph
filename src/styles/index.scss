@@ -44,19 +44,19 @@ a:visited {
   color: #292929;
 }
 a:hover {
-  color: crimson;
+  color: fuchsia;
 }
 
 img {
   max-width: 100%;
 }
-.content {
-  max-width: 1800px;
-  margin: 0 auto;
-  @media (max-width: 1800px) {
-    margin: 0 2rem;
-  }
-}
+// .content {
+//   max-width: 1800px;
+//   margin: 0 auto;
+//   @media (max-width: 1800px) {
+//     margin: 0 2rem;
+//   }
+// }
 h1,
 h2,
 h3 {
@@ -88,4 +88,8 @@ em {
 }
 li {
   list-style: none;
+}
+
+.wrapper {
+  margin: 1rem;
 }
