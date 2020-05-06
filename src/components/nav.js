@@ -5,16 +5,16 @@ import { graphql, useStaticQuery } from "gatsby"
 import logo from "./logo.gif"
 
 const Nav = () => {
-  function pathIncludes() {
-    if (
-      window.location.href.includes("motion") ||
-      window.location.href.includes("design") ||
-      window.location.href.includes("work") ||
-      window.location.href.includes("illustration")
-    ) {
-      return navStyles.active
-    }
-  }
+  // function pathIncludes() {
+  //   if (
+  //     window.location.href.includes("motion") ||
+  //     window.location.href.includes("design") ||
+  //     window.location.href.includes("work") ||
+  //     window.location.href.includes("illustration")
+  //   ) {
+  //     return navStyles.active
+  //   }
+  // }
 
   const myConfig = useStaticQuery(graphql`
     query {
@@ -28,9 +28,7 @@ const Nav = () => {
 
   return (
     <nav className={navStyles.nav}>
-      {/* <h1>
-        <Link to="../">{myConfig.site.siteMetadata.title}</Link>
-      </h1> */}
+      <h1 className={navStyles.noShow}>{myConfig.site.siteMetadata.title}</h1>
       <Link to="../">
         <img src={logo} alt="Steph Davidson" />
       </Link>

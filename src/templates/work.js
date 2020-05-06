@@ -82,6 +82,7 @@ const Work = props => {
           <Img
             fluid={props.data.contentfulWork.heroImage.fluid}
             alt={props.data.contentfulWork.heroImage.title}
+            className={workStyles.maxW}
           />
         )}
         <section className={workStyles.workBody}>

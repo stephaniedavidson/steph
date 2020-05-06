@@ -1,5 +1,4 @@
 .pubDate {
-  display: inline-block;
   float: right;
   line-height: 4rem;
 }
@@ -11,4 +10,9 @@
 
 .title {
   display: inline-block;
+  margin-bottom: 2rem;
+}
+
+.maxW {
+  max-width: auto;
 }
