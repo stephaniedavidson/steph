@@ -5,17 +5,6 @@ import { graphql, useStaticQuery } from "gatsby"
 import logo from "./logo.gif"
 
 const Nav = () => {
-  // function pathIncludes() {
-  //   if (
-  //     window.location.href.includes("motion") ||
-  //     window.location.href.includes("design") ||
-  //     window.location.href.includes("work") ||
-  //     window.location.href.includes("illustration")
-  //   ) {
-  //     return navStyles.active
-  //   }
-  // }
-
   const myConfig = useStaticQuery(graphql`
     query {
       site {

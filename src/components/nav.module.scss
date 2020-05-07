@@ -1,9 +1,6 @@
 nav {
   position: relative;
   max-width: 1800px;
-  // @media (max-width: 1800px) {
-  //   margin: 2rem 1rem;
-  // }
   a {
     text-decoration: none;
     transform-origin: center center;
@@ -61,6 +58,9 @@ nav {
     color: hotpink !important;
     border: 2px solid hotpink;
     cursor: default;
+  }
+  ul:last-child {
+    text-align: right;
   }
 }
 

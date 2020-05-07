@@ -1,3 +1,5 @@
+const dotenv = require("dotenv").config()
+
 module.exports = {
   siteMetadata: {
     title: "Steph Davidson",
@@ -6,13 +8,6 @@ module.exports = {
   plugins: [
     {
       resolve: "gatsby-transformer-sharp",
-    },
-    "gatsby-plugin-page-transitions",
-    {
-      resolve: "gatsby-plugin-page-transitions",
-      options: {
-        transitionTime: 500,
-      },
     },
     "gatsby-plugin-react-helmet",
     {
