@@ -14,17 +14,23 @@ const Contact = () => {
         <section className={contactStyles.contactSection}>
           <h2>About</h2>
           <p>
-            Web graphic designer motion generalist from Toronto living in New
-            York.
+            <img src={aura} style={{ width: "300px" }} alt="aura" />
+          </p>
+          <p>
+            Web focused graphic designer and motion generalist from Toronto
+            living in New York.
           </p>
           <p>
             <em>Currently</em>: Bloomberg News, Special Features.
           </p>
           <p>
-            <em>Previously</em>: digital advertising art director (clients: TD
-            Bank, Motorola, Coke, Microsoft, Weather Network, Mitsubishi,
-            Intuit, Hersheys, SC Johnson, Robin Hood Flour, HP, Hong Kong
-            Tourism Board, Hellmans, Export Development Canada, The Bay,
+            <em>Previously</em>: Businessweek, Bloomberg Video.
+          </p>
+          <p>
+            <em>Even more previously</em>: Digital advertising art director
+            (clients: TD Bank, Motorola, Coke, Microsoft, Weather Network,
+            Mitsubishi, Intuit, Hersheys, SC Johnson, Robin Hood Flour, HP, Hong
+            Kong Tourism Board, Hellmans, Export Development Canada, The Bay,
             Carrabas, Smuckers).
           </p>
           <a href="mailto:stephcdavidson@gmail.com">email</a> <br />
@@ -35,9 +41,6 @@ const Contact = () => {
           >
             twitter
           </a>{" "}
-          <p>
-            <img src={aura} style={{ width: "300px" }} alt="aura" />
-          </p>
         </section>
 
         <section className={contactStyles.powerLevelsSection}>
@@ -114,7 +117,6 @@ const Contact = () => {
 
         <section className={contactStyles.rigSection}>
           <h2>My rig</h2>
-          <img src={hog} alt="my rendering hog" />
           <ul>
             <li>Thermaltake Core P3 Snow Edition ATX</li>
             <li>AMD Ryzen 7 3700x</li>
@@ -126,6 +128,7 @@ const Contact = () => {
             <li>Western Digital Caviar Black 500gb</li>
             <li>Aliexpress dust cover (purple)</li>
           </ul>
+          <img src={hog} alt="my rendering hog" />
         </section>
 
         <section>

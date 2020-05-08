@@ -3,9 +3,8 @@ import { Link, graphql, useStaticQuery } from "gatsby"
 import Head from "../components/head"
 import Img from "gatsby-image"
 import Layout from "../components/layout"
-import masonryStyles from "../utils/masonry.module.scss"
 import { isPic, isVid } from "../utils/index.js"
-import Masonry from "../utils/masonry"
+import masonryStyle from "../utils/masonry.module.scss"
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
@@ -36,11 +35,13 @@ const IndexPage = () => {
   return (
     <Layout>
       <Head title="Work" />
-      <Masonry>
+      <div className={masonryStyle.masonryWrapper}>
         {data.allContentfulWork.edges.map(edge => {
           return (
             <Link
-              className={`${masonryStyles.relatively}`}
+              className={`${masonryStyle.item} ${
+                edge.node.featured ? `${masonryStyle.featured}` : ""
+              }`}
               to={`/work/${edge.node.slug}`}
               key={edge.node.slug.replace(/ /g, "")}
             >
@@ -61,14 +62,11 @@ const IndexPage = () => {
                   alt={edge.node.heroImage.title}
                 />
               )}
-              <div className={`${masonryStyles.noShow}`}>{edge.node.title}</div>
-              <div className={`${masonryStyles.itemTitle}`}>
-                {edge.node.title}
-              </div>
+              <div className={masonryStyle.titleOverlay}>{edge.node.title}</div>
             </Link>
           )
         })}
-      </Masonry>
+      </div>
     </Layout>
   )
 }

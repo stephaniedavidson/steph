@@ -23,7 +23,6 @@ const createTagPages = (createPage, posts) => {
   })
 
   const tags = Object.keys(postsByTags)
-  //create ALL TAGS
   createPage({
     path: `/tags`,
     component: allTagTemplate,
@@ -31,7 +30,7 @@ const createTagPages = (createPage, posts) => {
       tags: tags.sort(),
     },
   })
-  //create EACH TAG
+  //create EACH TAG PAGE
   tags.forEach(tagName => {
     const posts = postsByTags[tagName]
     createPage({
@@ -84,19 +83,3 @@ module.exports.createPages = async ({ graphql, actions }) => {
   //CREATE TAG PAGES
   createTagPages(createPage, posts)
 }
-
-//idk what the heck this is... for window on server render
-// exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
-//   if (stage === "build-html") {
-//     actions.setWebpackConfig({
-//       module: {
-//         rules: [
-//           {
-//             test: /bad-module/,
-//             use: loaders.null(),
-//           },
-//         ],
-//       },
-//     })
-//   }
-// }

@@ -1,11 +1,10 @@
 import React from "react"
 import Link from "gatsby-link"
 import Head from "../components/head"
-
 import Layout from "../components/layout"
-
-import masonryStyles from "../utils/masonry.module.scss"
-import Masonry from "../utils/masonry"
+import masonryStyle from "../utils/masonry.module.scss"
+// import Img from "gatsby-image"
+import { isPic, isVid } from "../utils/index.js"
 
 const Tags = ({ pageContext }) => {
   const { posts, tagName } = pageContext
@@ -17,15 +16,17 @@ const Tags = ({ pageContext }) => {
         <h3>
           Tagged <em>{tagName}</em>
         </h3>
-        <Masonry>
+        <div className={masonryStyle.masonryWrapper}>
           {posts.map(post => {
             return (
               <Link
-                className={`${masonryStyles.relatively}`}
+                className={`${masonryStyle.item} ${
+                  post.featured ? `${masonryStyle.featured}` : ""
+                }`}
                 to={`work/${post.slug.replace(/ /g, "")}`}
                 key={post.slug.replace(/ /g, "")}
               >
-                {post.heroImage.file.contentType === "video/mp4" && (
+                {isVid(post.heroImage.file.contentType) && (
                   <video
                     src={post.heroImage.file.url}
                     width="100%"
@@ -36,30 +37,21 @@ const Tags = ({ pageContext }) => {
                     preload="none"
                   ></video>
                 )}
-                {post.heroImage.file.contentType === "image/png" && (
+                {isPic(post.heroImage.file.contentType) && (
+                  // <Img
+                  //   fluid={post.heroImage.fluid}
+                  //   alt={post.heroImage.file.title}
+                  // />
                   <img
                     src={post.heroImage.file.url}
                     alt={post.heroImage.file.title}
                   />
                 )}
-                {post.heroImage.file.contentType === "image/jpeg" && (
-                  <img
-                    src={post.heroImage.file.url}
-                    alt={post.heroImage.file.title}
-                  />
-                )}
-                {post.heroImage.file.contentType === "image/gif" && (
-                  <img
-                    src={post.heroImage.file.url}
-                    alt={post.heroImage.file.title}
-                  />
-                )}
-                <div className={masonryStyles.noShow}>{post.title}</div>
-                <div className={masonryStyles.itemTitle}>{post.title}</div>
+                <div className={masonryStyle.titleOverlay}>{post.title}</div>
               </Link>
             )
           })}
-        </Masonry>
+        </div>
       </Layout>
     )
   }

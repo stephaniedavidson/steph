@@ -29,7 +29,7 @@ body {
   font-family: "EB Garamond", serif;
   -webkit-font-smoothing: antialiased;
   font-size: 1.5rem;
-  line-height: 1.75rem;
+  line-height: 1.9rem;
 }
 
 p {
@@ -44,19 +44,12 @@ a:visited {
   color: #292929;
 }
 a:hover {
-  color: fuchsia;
+  color: rgb(49, 0, 228);
 }
 
 img {
   max-width: 100%;
 }
-// .content {
-//   max-width: 1800px;
-//   margin: 0 auto;
-//   @media (max-width: 1800px) {
-//     margin: 0 2rem;
-//   }
-// }
 h1,
 h2,
 h3 {

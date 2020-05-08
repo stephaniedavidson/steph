@@ -1,29 +1,47 @@
-a:hover > .itemTitle {
-  opacity: 1;
-}
+$mobile: 700px;
 
-a:hover {
-  color: black;
-}
-.itemTitle {
-  width: 100%;
-  height: 100%;
-  padding: 10px;
-  background: linear-gradient(white, transparent);
-  opacity: 0;
-  position: absolute;
-  z-index: 5;
-  top: 0;
-  left: 0;
-  text-decoration: none !important;
+.masonryWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
   transition: all 0.25s ease;
-  font-size: 2rem;
-}
-.noShow {
-  height: 0;
-  overflow: hidden;
-}
-
-.relatively {
-  position: relative;
+  .item {
+    position: relative;
+    min-width: 33%;
+    max-width: 66%;
+    flex: 1 0 auto;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    @media (max-width: $mobile) {
+      width: 100%;
+      min-width: 100%;
+      max-width: 100%;
+      padding: 1rem;
+    }
+  }
+  .featured {
+    flex-grow: 2;
+    padding: 0;
+  }
+  a .titleOverlay {
+    opacity: 0;
+    padding: 10px;
+    font-size: 2rem;
+    line-height: 2.1rem;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    min-width: 60%;
+    transition: all 0.25s ease;
+  }
+  a:hover {
+    transition: all 0.25s ease;
+    .titleOverlay {
+      opacity: 1;
+    }
+  }
 }
