@@ -10,7 +10,8 @@ const createTagPages = (createPage, posts) => {
   const postsByTags = {}
   posts.forEach(({ node }) => {
     const splitTags = node.tags.split(",").map(t => t.trim())
-    //split tags is an array of strings of tags for each post ['illustration', 'motion']
+    //in each post split tags is an array of strings
+    //like ['illustration', 'motion']
     if (node.tags) {
       splitTags.forEach(tag => {
         if (!postsByTags[tag]) {
@@ -44,6 +45,12 @@ const createTagPages = (createPage, posts) => {
   })
 }
 
+//******THIS QUERY IS WHERE I TRY TO INSERT:
+// heroImage {
+//   fluid(maxWidth: 1800) {
+//     ...GatsbyContentfulFluid
+//   }
+//I want to send the fluid data to the template pages
 module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const res = await graphql(`
