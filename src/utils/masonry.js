@@ -1,25 +1,32 @@
 import React, { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
 
-//https://codesandbox.io/s/captain-hookuseeventlistener-rtrkc
-const useEventListener = (eventName, handler, element = window) => {
-  const savedHandler = useRef()
+//based on https://janosh.io/blog/react-hooks-masonry
 
-  useEffect(() => {
-    savedHandler.current = handler
-  }, [handler])
+// useEffect(() => {
+//   if (typeof window === "undefined") return
+// })
 
-  useEffect(() => {
-    const isSupported = element && element.addEventListener
-    if (!isSupported) return
+if (typeof window !== "undefined") {
+  const useEventListener = (eventName, handler, element = window) => {
+    const savedHandler = useRef()
 
-    const eventListener = event => savedHandler.current(event)
-    element.addEventListener(eventName, eventListener)
+    useEffect(() => {
+      savedHandler.current = handler
+    }, [handler])
 
-    return () => {
-      element.removeEventListener(eventName, eventListener)
-    }
-  }, [eventName, element])
+    useEffect(() => {
+      const isSupported = element && element.addEventListener
+      if (!isSupported) return
+
+      const eventListener = event => savedHandler.current(event)
+      element.addEventListener(eventName, eventListener)
+
+      return () => {
+        element.removeEventListener(eventName, eventListener)
+      }
+    }, [eventName, element])
+  }
 }
 
 const fillCols = (children, cols) => {
@@ -35,7 +42,9 @@ export default function Masonry({ children, gap, minWidth = 500, ...rest }) {
   const resizeHandler = () =>
     setNumCols(Math.ceil(ref.current.offsetWidth / minWidth))
   useEffect(resizeHandler, [])
-  useEventListener(`resize`, resizeHandler)
+  if (typeof window !== "undefined") {
+    useEventListener(`resize`, resizeHandler)
+  }
 
   const MasonryDiv = styled.div`
     margin: 1rem auto;
