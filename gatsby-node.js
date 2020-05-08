@@ -50,7 +50,7 @@ const createTagPages = (createPage, posts) => {
 //   fluid(maxWidth: 1800) {
 //     ...GatsbyContentfulFluid
 //   }
-//I want to send the fluid data to the template pages
+//I want to send the fluid data to the template pages so I can have the same masonry as my pages/index.js page
 module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const res = await graphql(`
